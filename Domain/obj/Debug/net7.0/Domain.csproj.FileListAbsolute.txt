@@ -1,0 +1,12 @@
+D:\sam\Z\01\OnionArchtecture\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\sam\Z\01\OnionArchtecture\Domain\bin\Debug\net7.0\Domain.dll
+D:\sam\Z\01\OnionArchtecture\Domain\bin\Debug\net7.0\Domain.pdb
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.dll
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.pdb
+D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\ref\Domain.dll

@@ -1,0 +1,15 @@
+D:\sam\Z\01\OnionArchtecture\Application\bin\Debug\net7.0\Application.deps.json
+D:\sam\Z\01\OnionArchtecture\Application\bin\Debug\net7.0\Application.dll
+D:\sam\Z\01\OnionArchtecture\Application\bin\Debug\net7.0\Application.pdb
+D:\sam\Z\01\OnionArchtecture\Application\bin\Debug\net7.0\Domain.dll
+D:\sam\Z\01\OnionArchtecture\Application\bin\Debug\net7.0\Domain.pdb
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\Application.csproj.AssemblyReference.cache
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\Application.AssemblyInfoInputs.cache
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\Application.AssemblyInfo.cs
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\Application.csproj.CoreCompileInputs.cache
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\Application.dll
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\refint\Application.dll
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\Application.pdb
+D:\sam\Z\01\OnionArchtecture\Application\obj\Debug\net7.0\ref\Application.dll
