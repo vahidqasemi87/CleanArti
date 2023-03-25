@@ -10,3 +10,15 @@ D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.dll
 D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\refint\Domain.dll
 D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\Domain.pdb
 D:\sam\Z\01\OnionArchtecture\Domain\obj\Debug\net7.0\ref\Domain.dll
+F:\Projects\ZMyProject\CleanArti\Domain\bin\Debug\net7.0\Domain.deps.json
+F:\Projects\ZMyProject\CleanArti\Domain\bin\Debug\net7.0\Domain.dll
+F:\Projects\ZMyProject\CleanArti\Domain\bin\Debug\net7.0\Domain.pdb
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.dll
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\refint\Domain.dll
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.pdb
+F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\ref\Domain.dll

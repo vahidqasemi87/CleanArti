@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\sam\\Z\\01\\OnionArchtecture\\IdentityDemo\\IdentityDemo.csproj": {}
+    "F:\\Projects\\ZMyProject\\CleanArti\\IdentityDemo\\IdentityDemo.csproj": {}
   },
   "projects": {
-    "D:\\sam\\Z\\01\\OnionArchtecture\\IdentityDemo\\IdentityDemo.csproj": {
+    "F:\\Projects\\ZMyProject\\CleanArti\\IdentityDemo\\IdentityDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\sam\\Z\\01\\OnionArchtecture\\IdentityDemo\\IdentityDemo.csproj",
+        "projectUniqueName": "F:\\Projects\\ZMyProject\\CleanArti\\IdentityDemo\\IdentityDemo.csproj",
         "projectName": "IdentityDemo",
-        "projectPath": "D:\\sam\\Z\\01\\OnionArchtecture\\IdentityDemo\\IdentityDemo.csproj",
-        "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
-        "outputPath": "D:\\sam\\Z\\01\\OnionArchtecture\\IdentityDemo\\obj\\",
+        "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\IdentityDemo\\IdentityDemo.csproj",
+        "packagesPath": "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\ZMyProject\\CleanArti\\IdentityDemo\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Zero\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\v_ghasemi.CSDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

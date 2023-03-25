@@ -1,5 +1,5 @@
 ﻿using Application.Interfaces;
-using Domain.DTOs.Responses.Product;
+using Domain.DTOs.Responses.Products;
 using FluentValidation;
 using MediatR;
 using System.Collections.Generic;

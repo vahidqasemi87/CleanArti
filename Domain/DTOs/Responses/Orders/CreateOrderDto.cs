@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.DTOs.Responses.Product;
+namespace Domain.DTOs.Responses.Orders;
 
-public class CreateProductDto
+public class CreateOrderDto
 {
-	public CreateProductDto(int id)
+	public CreateOrderDto(int id)
 	{
 		Id = id;
 	}

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\sam\\Z\\01\\OnionArchtecture\\Persistence\\Persistence.csproj": {}
+    "F:\\Projects\\ZMyProject\\CleanArti\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "D:\\sam\\Z\\01\\OnionArchtecture\\Application\\Application.csproj": {
+    "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\sam\\Z\\01\\OnionArchtecture\\Application\\Application.csproj",
+        "projectUniqueName": "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\sam\\Z\\01\\OnionArchtecture\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
-        "outputPath": "D:\\sam\\Z\\01\\OnionArchtecture\\Application\\obj\\",
+        "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\ZMyProject\\CleanArti\\Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Zero\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\v_ghasemi.CSDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\sam\\Z\\01\\OnionArchtecture\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\sam\\Z\\01\\OnionArchtecture\\Domain\\Domain.csproj"
+              "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj": {
+                "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj"
               }
             }
           }
@@ -81,21 +77,17 @@
         }
       }
     },
-    "D:\\sam\\Z\\01\\OnionArchtecture\\Domain\\Domain.csproj": {
+    "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\sam\\Z\\01\\OnionArchtecture\\Domain\\Domain.csproj",
+        "projectUniqueName": "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\sam\\Z\\01\\OnionArchtecture\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
-        "outputPath": "D:\\sam\\Z\\01\\OnionArchtecture\\Domain\\obj\\",
+        "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Zero\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\v_ghasemi.CSDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -140,21 +132,17 @@
         }
       }
     },
-    "D:\\sam\\Z\\01\\OnionArchtecture\\Persistence\\Persistence.csproj": {
+    "F:\\Projects\\ZMyProject\\CleanArti\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\sam\\Z\\01\\OnionArchtecture\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "F:\\Projects\\ZMyProject\\CleanArti\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "D:\\sam\\Z\\01\\OnionArchtecture\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
-        "outputPath": "D:\\sam\\Z\\01\\OnionArchtecture\\Persistence\\obj\\",
+        "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\ZMyProject\\CleanArti\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Zero\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\v_ghasemi.CSDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -168,8 +156,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\sam\\Z\\01\\OnionArchtecture\\Application\\Application.csproj": {
-                "projectPath": "D:\\sam\\Z\\01\\OnionArchtecture\\Application\\Application.csproj"
+              "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj": {
+                "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj"
               }
             }
           }
