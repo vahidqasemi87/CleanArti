@@ -17,7 +17,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{A901AB44-1090-47B3-A20A-9CAD9114191F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityDemo", "IdentityDemo\IdentityDemo.csproj", "{018AB211-E859-42F2-B8E6-8631C5C4DD32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityDemo", "IdentityDemo\IdentityDemo.csproj", "{018AB211-E859-42F2-B8E6-8631C5C4DD32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{91D51C06-2785-4B38-AF30-D4AD87F2D63A}"
+	ProjectSection(SolutionItems) = preProject
+		Links.txt = Links.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
