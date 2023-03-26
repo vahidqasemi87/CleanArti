@@ -35,7 +35,7 @@ public class ApplicationDbContextFactory :
 	public ApplicationDbContext CreateDbContext(string[] args)
 	{
 		var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
-		builder.UseSqlServer("server=.;database=CleanDb;uid=sa;pwd=Ss1234!@#$;TrustServerCertificate=true;");
+		builder.UseSqlServer("server=.;database=CleanDb;uid=sa;pwd=Ss12345!@#$%;TrustServerCertificate=true;");
 		return new ApplicationDbContext(builder.Options);
 	}
 }

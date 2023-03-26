@@ -7,6 +7,8 @@ using Persistence;
 using Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using MediatR;
+using System.Reflection;
 
 namespace WebApi;
 
@@ -30,6 +32,11 @@ public class Program
 			options.UseSqlServer(connectionString: builder.Configuration.GetConnectionString(name: "Standard"));
 		});
 		#endregion
+
+		#region [MediatR]
+		builder.Services.AddMediatR(System.Reflection.Assembly.GetExecutingAssembly());
+		#endregion
+
 
 		// Add services to the container.
 
