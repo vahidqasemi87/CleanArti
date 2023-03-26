@@ -2,10 +2,8 @@
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -39,7 +37,7 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 		var findedCustomer = await _context.Customers.Where(w => w.Id == request.Id)
 			.FirstOrDefaultAsync();
 
-		if(findedCustomer !=null)
+		if (findedCustomer != null)
 		{
 			findedCustomer.Name = request.Name;
 			findedCustomer.Family = request.Family;
@@ -49,7 +47,7 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 			findedCustomer.Orders = request.Orders;
 			findedCustomer.Username = request.Username;
 
-			var info =  await _context.SaveChangesAsync();
+			var info = await _context.SaveChangesAsync();
 			return findedCustomer;
 		}
 		return null;

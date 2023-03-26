@@ -16,9 +16,4 @@
 		<ProjectReference Include="..\Domain\Domain.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Features\Commands\Orders\DeleteOrder\" />
-	  <Folder Include="Features\Commands\Orders\UpdateOrder\" />
-	</ItemGroup>
-
 </Project>
