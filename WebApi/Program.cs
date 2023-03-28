@@ -34,7 +34,7 @@ public class Program
 		#endregion
 
 		#region [MediatR]
-		builder.Services.AddMediatR(System.Reflection.Assembly.GetExecutingAssembly());
+		builder.Services.AddMediatR(assemblies: System.Reflection.Assembly.GetExecutingAssembly());
 		#endregion
 
 

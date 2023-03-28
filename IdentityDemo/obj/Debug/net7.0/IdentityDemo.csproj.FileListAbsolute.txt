@@ -162,3 +162,4 @@ F:\Projects\ZMyProject\CleanArti\IdentityDemo\obj\Debug\net7.0\refint\IdentityDe
 F:\Projects\ZMyProject\CleanArti\IdentityDemo\obj\Debug\net7.0\IdentityDemo.pdb
 F:\Projects\ZMyProject\CleanArti\IdentityDemo\obj\Debug\net7.0\IdentityDemo.genruntimeconfig.cache
 F:\Projects\ZMyProject\CleanArti\IdentityDemo\obj\Debug\net7.0\ref\IdentityDemo.dll
+F:\Projects\ZMyProject\CleanArti\IdentityDemo\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
