@@ -14,7 +14,8 @@ public static class ConfigureServices
 {
 	public static IServiceCollection UseSql(this IServiceCollection services, IConfiguration configuration)
 	{
-		string conn = configuration.GetConnectionString("DatabaseConnection");
+		string conn = configuration.GetConnectionString("IdentityConnection");
+
 		services.AddDbContext<IdentityServerDbContext>(option => option.UseSqlServer(conn));
 		return services;
 	}
