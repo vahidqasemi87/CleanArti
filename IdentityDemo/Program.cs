@@ -1,5 +1,6 @@
 
 
+using IdentityDemo.Infrastructurs.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace IdentityDemo;
@@ -20,12 +21,12 @@ public class Program
 
 
 		#region [Identity]
-		//builder.Services.AddDbContext<JwtAuthContext>(optionsAction: option =>
-		//{
-		//	option.UseSqlServer(connectionString: builder.Configuration.GetConnectionString(name: "IdentityConnection"));
-		//});
+		builder.Services.AddDbContext<IdentityServerDbContext>(optionsAction: option =>
+		{
+			option.UseSqlServer(connectionString: builder.Configuration.GetConnectionString(name: "IdentityConnection"));
+		});
 
-		
+
 		#endregion
 
 
