@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Infrastructurs\Migrations\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>

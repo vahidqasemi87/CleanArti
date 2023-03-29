@@ -10,7 +10,7 @@ public class UserServiceCommand : IUserServiceCommand
 	private readonly UserManager<User> _userManager;
 	private readonly IUnitOfWord _unitOfWord;
 
-    public UserServiceCommand(UserManager<User> userManager, IUnitOfWord unitOfWord)
+	public UserServiceCommand(UserManager<User> userManager, IUnitOfWord unitOfWord)
 	{
 		_userManager = userManager;
 		_unitOfWord = unitOfWord;
@@ -19,10 +19,10 @@ public class UserServiceCommand : IUserServiceCommand
 
 	public async Task<User> Add(UserDto user)
 	{
-		var newUser = new User 
+		var newUser = new User
 		{
 			UserName = user.UserName,
-			FirstName=user.FirstName,
+			FirstName = user.FirstName,
 			LastName = user.LastName,
 			CodeMelli = user.CodeMelli,
 		};
@@ -30,7 +30,7 @@ public class UserServiceCommand : IUserServiceCommand
 		try
 		{
 			var aaa =
-				await _userManager.CreateAsync(newUser,user.Password);
+				await _userManager.CreateAsync(newUser, user.Password);
 			_unitOfWord.SaveChangeAsync();
 			return newUser;
 		}
@@ -46,5 +46,43 @@ public class UserServiceCommand : IUserServiceCommand
 		var user = await _userManager.FindByIdAsync("3");
 		user!.SecurityStamp = Convert.ToString(Guid.NewGuid());
 		_unitOfWord.SaveChangeAsync();
+	}
+
+	public async Task<User> Login(LoginDto loginDto)
+	{
+		var getInfo =
+			await _userManager.FindByNameAsync(loginDto.UserName);
+
+		if (getInfo == null)
+		{
+			return null;
+		}
+
+		//string passwordHash = Helpers.Security.Hashing.GetSha256(loginDto.Password);
+
+		if(string.IsNullOrWhiteSpace(loginDto.Password))
+		{
+			return null;
+		}
+
+		string? masterPassword =
+			getInfo.PasswordHash;//ApplicationSettings.MasterPassword;
+
+		
+
+		
+		var validationPassword = 
+			await _userManager.CheckPasswordAsync(getInfo,loginDto.Password);
+
+
+		if (validationPassword == false) return null;
+
+		//if (string.Compare(passwordHash,masterPassword,ignoreCase:true)!=0)
+		//{
+		//	return null;
+		//}
+
+		return getInfo;
+
 	}
 }

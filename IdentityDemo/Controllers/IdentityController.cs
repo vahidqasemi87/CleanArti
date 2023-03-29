@@ -35,4 +35,13 @@ public class IdentityController : ControllerBase
 		await _userServiceCommand.UpdateSecurityStamp();
 		return Ok();
 	}
+	[HttpPost("UserLogin")]
+	public async Task<IActionResult> LoginUser([FromBody] LoginDto user)
+	{
+		var findedUser = 
+			await _userServiceCommand.Login(loginDto: user);
+		if (user != null)
+			return Ok();
+		return BadRequest("نام کاربری و رمز عبور مطابقت ندارد");
+	}
 }
