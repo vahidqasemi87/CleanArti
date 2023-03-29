@@ -3,10 +3,14 @@
 using IdentityDemo.Command.UserAggregate;
 using IdentityDemo.Contracts;
 using IdentityDemo.Contracts.UserAggregate;
+using IdentityDemo.Domain;
+using IdentityDemo.Domain.UserAggregate;
 using IdentityDemo.Infrastructurs.Context;
+using IdentityDemo.Infrastructurs.Data;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace IdentityDemo;
 
@@ -20,13 +24,15 @@ public class Program
 
 		builder.Services.AddControllers();
 
-		
+
 		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 		builder.Services.AddSwaggerGen();
 		builder.Services.AddEndpointsApiExplorer();
 
-		builder.Services.AddAuthentication();
+
+
+
 
 
 
@@ -56,8 +62,6 @@ public class Program
 		//(Error while validating the service descriptor
 		//'ServiceType: IdentityDemo.Contracts.UserAggregate.IUserServiceCommand Lifetime:
 		//Scoped ImplementationType: 
-		//builder.Services.AddScoped<IUserServiceCommand, UserServiceCommand>();
-
 
 
 
@@ -65,39 +69,61 @@ public class Program
 
 
 		#region [Identity]
+
+
+
+
 		builder.Services.AddDbContext<IdentityServerDbContext>(optionsAction: option =>
 		{
 			option.UseSqlServer(connectionString: builder.Configuration.GetConnectionString(name: "IdentityConnection"));
 		});
 
 		#endregion
-		
-		
+
+		builder.Services.AddAuthentication();
+
+		builder.Services.AddTransient<IUnitOfWord, UnitOfWork>();
+
+
+		builder.Services.AddScoped<IUserServiceCommand, UserServiceCommand>();
+
+		//builder.Services.AddAuthentication(options =>
+		//{
+		//	options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+		//	options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+		//	options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+		//});
+
+		builder.Services.AddIdentity<User, Role>()
+		.AddDefaultTokenProviders()
+		.AddEntityFrameworkStores<IdentityServerDbContext>();
+
 
 		var app = builder.Build();
 
-		// Configure the HTTP request pipeline.
-		if (app.Environment.IsDevelopment())
-		{
-			app.UseSwagger();
-			app.UseSwaggerUI();
+			// Configure the HTTP request pipeline.
+			if (app.Environment.IsDevelopment())
+			{
+				app.UseSwagger();
+				app.UseSwaggerUI();
+			}
+
+			app.UseCors(delegate (CorsPolicyBuilder builder)
+			{
+				builder.AllowAnyOrigin();
+				builder.AllowAnyHeader();
+				builder.AllowAnyMethod();
+				builder.WithExposedHeaders("Content-Disposition");
+			});
+
+			app.UseHttpsRedirection();
+
+			app.UseAuthentication();
+			app.UseAuthorization();
+
+
+			app.MapControllers();
+
+			app.Run();
 		}
-
-		app.UseCors(delegate (CorsPolicyBuilder builder)
-		{
-			builder.AllowAnyOrigin();
-			builder.AllowAnyHeader();
-			builder.AllowAnyMethod();
-			builder.WithExposedHeaders("Content-Disposition");
-		});
-
-		app.UseHttpsRedirection();
-		app.UseAuthentication();
-		app.UseAuthorization();
-
-
-		app.MapControllers();
-
-		app.Run();
-	}
 }

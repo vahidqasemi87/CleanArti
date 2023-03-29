@@ -10,8 +10,7 @@ public class UserServiceCommand : IUserServiceCommand
 	private readonly UserManager<User> _userManager;
 	private readonly IUnitOfWord _unitOfWord;
 
-
-	public UserServiceCommand(UserManager<User> userManager, IUnitOfWord unitOfWord)
+    public UserServiceCommand(UserManager<User> userManager, IUnitOfWord unitOfWord)
 	{
 		_userManager = userManager;
 		_unitOfWord = unitOfWord;
