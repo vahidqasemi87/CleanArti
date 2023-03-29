@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MediatR;
 using System.Reflection;
+using WebApi.Infrastructure.AppSettings;
 
 namespace WebApi;
 
@@ -44,6 +45,15 @@ public class Program
 		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
+
+		#region [Read from appsettings config]
+
+		IConfigurationRoot? configuration =
+			new ConfigurationBuilder()
+			.AddJsonFile("appsettings.json").Build();
+
+		builder.Services.Configure<AddressApi>(config: builder.Configuration.GetSection(key: "AddressApi"));
+		#endregion
 
 		var app = builder.Build();
 

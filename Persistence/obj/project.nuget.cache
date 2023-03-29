@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PgBu0r+wrLtg0atYEFv/T83dtfsW0jCeP0+/EqdQouAKxlS9tmRKtg6X4HXwvrZgdF6gRuOZFJF6PUP/Xj3nYA==",
+  "dgSpecHash": "Sf6ZIOO1+8Dpbh3HH6uDKaSHHUvxlWvav9hq7LaCpMZnQyADbrjIL6J11kk+sKxCTyapvOC4dTxEns/bmt4mGQ==",
   "success": true,
   "projectFilePath": "F:\\Projects\\ZMyProject\\CleanArti\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,8 @@
     "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
     "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
+    "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

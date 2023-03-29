@@ -172,3 +172,5 @@ F:\Projects\ZMyProject\CleanArti\WebApi\obj\Debug\net7.0\refint\WebApi.dll
 F:\Projects\ZMyProject\CleanArti\WebApi\obj\Debug\net7.0\WebApi.pdb
 F:\Projects\ZMyProject\CleanArti\WebApi\obj\Debug\net7.0\WebApi.genruntimeconfig.cache
 F:\Projects\ZMyProject\CleanArti\WebApi\obj\Debug\net7.0\ref\WebApi.dll
+F:\Projects\ZMyProject\CleanArti\WebApi\bin\Debug\net7.0\RestSharp.dll
+F:\Projects\ZMyProject\CleanArti\WebApi\bin\Debug\net7.0\Newtonsoft.Json.dll

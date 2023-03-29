@@ -41,7 +41,7 @@ public class IdentityController : ControllerBase
 		var findedUser = 
 			await _userServiceCommand.Login(loginDto: user);
 		if (user != null)
-			return Ok();
+			return Ok(user);
 		return BadRequest("نام کاربری و رمز عبور مطابقت ندارد");
 	}
 }
