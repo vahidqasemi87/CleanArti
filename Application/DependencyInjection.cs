@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Application.Configuration;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application;
@@ -9,5 +10,10 @@ public static class DependencyInjection
 	public static void AddApplication(this IServiceCollection services)
 	{
 		services.AddMediatR(assemblies: System.Reflection.Assembly.GetExecutingAssembly());
+
+
+		services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+
 	}
 }

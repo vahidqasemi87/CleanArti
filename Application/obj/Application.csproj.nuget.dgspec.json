@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj": {}
+    "D:\\sam\\CleanArchitecture\\CleanArti\\Application\\Application.csproj": {}
   },
   "projects": {
-    "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj": {
+    "D:\\sam\\CleanArchitecture\\CleanArti\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\sam\\CleanArchitecture\\CleanArti\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\ZMyProject\\CleanArti\\Application\\obj\\",
+        "projectPath": "D:\\sam\\CleanArchitecture\\CleanArti\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
+        "outputPath": "D:\\sam\\CleanArchitecture\\CleanArti\\Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\v_ghasemi.CSDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Zero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj": {
-                "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj"
+              "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\Domain.csproj"
               }
             }
           }
@@ -45,6 +49,10 @@
           "targetAlias": "net7.0",
           "dependencies": {
             "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
               "version": "[11.5.1, )"
             },
@@ -81,17 +89,21 @@
         }
       }
     },
-    "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj": {
+    "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\ZMyProject\\CleanArti\\Domain\\obj\\",
+        "projectPath": "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
+        "outputPath": "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\v_ghasemi.CSDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Zero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

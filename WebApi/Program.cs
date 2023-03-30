@@ -1,14 +1,13 @@
 
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Application;
-using Persistence;
-using Persistence.Context;
+using MediatR;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using MediatR;
-using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Persistence;
+using Persistence.Context;
 using WebApi.Infrastructure.AppSettings;
 
 namespace WebApi;
@@ -17,7 +16,7 @@ public class Program
 {
 	public static void Main(string[] args)
 	{
-		var builder = WebApplication.CreateBuilder(args);
+		WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 
 
 		#region[Add Dependency injection]
@@ -42,6 +41,8 @@ public class Program
 		// Add services to the container.
 
 		builder.Services.AddControllers();
+
+
 		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
@@ -50,10 +51,16 @@ public class Program
 
 		IConfigurationRoot? configuration =
 			new ConfigurationBuilder()
-			.AddJsonFile("appsettings.json").Build();
+			.AddJsonFile(path: "appsettings.json").Build();
 
 		builder.Services.Configure<AddressApi>(config: builder.Configuration.GetSection(key: "AddressApi"));
 		#endregion
+
+
+		
+
+
+
 
 		var app = builder.Build();
 

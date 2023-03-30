@@ -1,12 +1,7 @@
 ﻿using Domain.DTOs.Responses.Customers;
-using Domain.DTOs.Responses.Orders;
 using Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Application.Features.Commands.Customers.CreateCustomer;
 

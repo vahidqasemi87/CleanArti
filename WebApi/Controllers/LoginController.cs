@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using WebApi.Infrastructure.AppSettings;
 using WebApi.ViewModels;
@@ -30,7 +28,7 @@ public class LoginController : ControllerBase
 		};
 		var client = new RestClient(options);
 
-		string requestUrl = _addressApi.RequestLogin;
+		string requestUrl = _addressApi.RequestLogin!;
 		var request = new RestRequest(requestUrl, Method.Post);
 
 
@@ -39,7 +37,7 @@ public class LoginController : ControllerBase
 
 		//var body = @$"username:{userLogin.Username},password:{userLogin.Password}";
 
-		var body= JsonConvert.SerializeObject(userLogin);
+		var body = JsonConvert.SerializeObject(userLogin);
 
 		request.AddStringBody(body, DataFormat.Json);
 		RestResponse response = await client.ExecuteAsync(request);
@@ -49,6 +47,6 @@ public class LoginController : ControllerBase
 			return Ok(response);
 		}
 		return BadRequest();
-		
+
 	}
 }

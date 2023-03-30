@@ -22,3 +22,15 @@ F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.dll
 F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\refint\Domain.dll
 F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\Domain.pdb
 F:\Projects\ZMyProject\CleanArti\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\sam\CleanArchitecture\CleanArti\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\sam\CleanArchitecture\CleanArti\Domain\bin\Debug\net7.0\Domain.dll
+D:\sam\CleanArchitecture\CleanArti\Domain\bin\Debug\net7.0\Domain.pdb
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\Domain.dll
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\Domain.pdb
+D:\sam\CleanArchitecture\CleanArti\Domain\obj\Debug\net7.0\ref\Domain.dll

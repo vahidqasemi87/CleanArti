@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using WebApi.ViewModels;
 
 namespace WebApi.Controllers;
 
@@ -15,16 +16,16 @@ public class CustomersController : ControllerBase
 		_mediator = mediator;
 	}
 	[HttpPost]
-	public async Task<IActionResult> Get(string username, string password, string name, string family, string mobile, string address)
+	public async Task<IActionResult> Get(CreateCustomerViewModel input)
 	{
 		var rr = await _mediator.Send(new CreateCustomerCommand()
 		{
-			Address = address,
-			Family = family,
-			Mobile = mobile,
-			Name = name,
-			Password = password,
-			Username = username,
+			Address =  input.Address,
+			Family =   input.Family,
+			Mobile =   input.Mobile,
+			Name =     input.Name,
+			Password = input.Password,
+			Username = input.Username,
 		});
 		return Ok(rr);
 	}
