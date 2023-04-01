@@ -5,11 +5,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace Application.Configuration;
 
 
 public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-	where TRequest : MediatR.IRequest<TResponse>
+	where TRequest : IRequest<TResponse>
 {
 
 	private readonly IEnumerable<IValidator<TRequest>> _validators;
@@ -20,8 +21,9 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
 	public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
 	{
+		var validateCheck = _validators.Any();
 
-		if (!_validators.Any())
+		if (!validateCheck)
 		{
 			return await next();
 		}
@@ -30,13 +32,13 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 			new ValidationContext<TRequest>(instanceToValidate: request);
 
 		var errorsDictionary = _validators
-			.Select(x => x.Validate(context))
-			.SelectMany(x => x.Errors)
-			.Where(x => x != null)
+			.Select(selector: x => x.Validate(context))
+			.SelectMany(selector: x => x.Errors)
+			.Where(predicate: x => x != null)
 			.GroupBy(
-				x => x.PropertyName,
-				x => x.ErrorMessage,
-				(propertyName, errorMessages) => new
+				keySelector: x => x.PropertyName,
+				elementSelector: x => x.ErrorMessage,
+				resultSelector: (propertyName, errorMessages) => new
 				{
 					Key = propertyName,
 					Values = errorMessages.Distinct().ToArray()

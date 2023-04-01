@@ -1,13 +1,28 @@
-﻿using Domain.Entities;
+﻿using Application.Features.Commands.Customers.CreateCustomer;
+using Domain.Entities;
 using FluentValidation;
+using Step01;
 using System.Text.RegularExpressions;
+using System.Windows.Input;
 
 namespace Application.FluentValidations.Customers;
 
-public class CustomerFluentValidation : FluentValidation.AbstractValidator<Customer>
+public sealed record CustomerCreateCommand(string Username,string Name, string Password):ICommand<CreateCustomerCommand>;
+
+
+public class CustomerFluentValidation : AbstractValidator<CustomerCreateCommand> //FluentValidation.AbstractValidator<CreateCustomerCommand>
 {
 	public CustomerFluentValidation()
 	{
+		RuleFor(c=>c.Username)
+			.NotEmpty()
+			.WithMessage("Usernme is not empty.")
+			.NotNull()
+			.WithMessage("Username is not null.")
+			.Must(ValidStringNotEmpty)
+			.WithMessage("Custome error !!!");
+
+
 		RuleFor(expression: c => c.Name)
 			.Length(min: 3, max: 50)
 			.WithMessage(errorMessage: "Name range is 3 to 50.")
@@ -41,5 +56,10 @@ public class CustomerFluentValidation : FluentValidation.AbstractValidator<Custo
 			digit.IsMatch(pw);
 
 		return result;
+	}
+	private bool ValidStringNotEmpty(string? input)
+	{
+		if (string.IsNullOrWhiteSpace(input)) return true;
+		return true;
 	}
 }

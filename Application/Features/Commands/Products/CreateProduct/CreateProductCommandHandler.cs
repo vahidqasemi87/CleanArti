@@ -20,6 +20,8 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
 	}
 	public async Task<CreateProductDto> Handle(CreateProductCommand request, CancellationToken cancellationToken)
 	{
+		var tt =  _validators.Any();
+
 		var movie = request.MapTo();
 		var entityEntry = _context.Products.Add(movie);
 		var result = await _context.SaveChangesAsync();
