@@ -8,7 +8,7 @@ public static class CreateOrderCommandExtension
 	{
 		var order = new Order
 		{
-			Customer = command.Customer,
+			//Customer = command.Customer!,
 			IsPayed = command.IsPayed,
 			IsSend = command.IsPayed,
 			OrderDate = command.OrderDate,

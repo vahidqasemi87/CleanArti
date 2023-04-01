@@ -2,6 +2,7 @@
 using Domain.Entities;
 using FluentValidation;
 using Step01;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 
@@ -10,7 +11,9 @@ namespace Application.FluentValidations.Customers;
 public sealed record CustomerCreateCommand(string Username,string Name, string Password):ICommand<CreateCustomerCommand>;
 
 
-public class CustomerFluentValidation : AbstractValidator<CustomerCreateCommand> //FluentValidation.AbstractValidator<CreateCustomerCommand>
+public class CustomerFluentValidation :
+	//AbstractValidator<CustomerCreateCommand> 
+	AbstractValidator<CreateCustomerCommand>
 {
 	public CustomerFluentValidation()
 	{
@@ -22,6 +25,8 @@ public class CustomerFluentValidation : AbstractValidator<CustomerCreateCommand>
 			.Must(ValidStringNotEmpty)
 			.WithMessage("Custome error !!!");
 
+
+		
 
 		RuleFor(expression: c => c.Name)
 			.Length(min: 3, max: 50)
@@ -60,6 +65,15 @@ public class CustomerFluentValidation : AbstractValidator<CustomerCreateCommand>
 	private bool ValidStringNotEmpty(string? input)
 	{
 		if (string.IsNullOrWhiteSpace(input)) return true;
-		return true;
+
+		input =
+				input.Replace(" ", string.Empty);
+
+		// All -> Is Extension Method -> using System.Linq;
+		bool result =
+			input.All(char.IsLetter);
+
+		return result;
+
 	}
 }

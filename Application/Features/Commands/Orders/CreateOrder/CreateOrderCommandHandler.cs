@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Domain.DTOs.Responses.Orders;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,6 +18,12 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
 	{
 		var order =
 			request.MapTo();
+
+		var customer=_context.Customers.Where(w=>w.Id==request.CustomerId).FirstOrDefault();
+
+		if (customer != null)
+			order.Customer = customer;
+
 		var entityEntry = 
 			await _context.Orders.AddAsync(order);
 

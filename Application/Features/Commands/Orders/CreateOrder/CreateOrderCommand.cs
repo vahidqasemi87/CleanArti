@@ -7,13 +7,15 @@ namespace Application.Features.Commands.Orders.CreateOrder;
 
 public class CreateOrderCommand : IRequest<CreateOrderDto>
 {
-	public CreateOrderCommand()
+	public CreateOrderCommand(int customerId)
 	{
-		Customer = new Customer();
+		//Customer = new Customer();
+		CustomerId = customerId;
 	}
 	public DateTime? OrderDate { get; set; }
 	public bool IsPayed { get; set; } = false;
 	public bool IsSend { get; set; } = false;
 	public string? PaymentCode { get; set; }
-	public Customer? Customer { get; set; }
+    public int CustomerId { get; set; }
+    //public Customer? Customer { get; set; }
 }

@@ -12,7 +12,7 @@ public static class CreateCustomerCommandExtension
 			Family = command.Address,
 			Name = command.Name,
 			Mobile = command.Mobile,
-			Orders = command.Orders,
+			//Orders = command.Orders,
 			Password = command.Password,
 			Username = command.Username,
 		};

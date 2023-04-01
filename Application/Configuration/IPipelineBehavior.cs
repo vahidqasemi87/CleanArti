@@ -23,7 +23,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 	{
 		var validateCheck = _validators.Any();
 
-		if (!validateCheck)
+		if ( ! validateCheck )
 		{
 			return await next();
 		}

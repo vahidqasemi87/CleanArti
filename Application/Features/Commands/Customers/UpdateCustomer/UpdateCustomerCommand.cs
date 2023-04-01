@@ -44,7 +44,7 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 			findedCustomer.Address = request.Address;
 			findedCustomer.Mobile = request.Mobile;
 			findedCustomer.Password = request.Password;
-			findedCustomer.Orders = request.Orders;
+			//findedCustomer.Orders = request.Orders;
 			findedCustomer.Username = request.Username;
 
 			var info = await _context.SaveChangesAsync();
