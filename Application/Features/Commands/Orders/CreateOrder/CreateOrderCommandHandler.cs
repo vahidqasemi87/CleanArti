@@ -1,6 +1,8 @@
-﻿using Application.Interfaces;
+﻿using Application.Features.Commands.Customers.DeleteCustomer;
+using Application.Interfaces;
 using Domain.DTOs.Responses.Orders;
 using MediatR;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,25 +12,64 @@ namespace Application.Features.Commands.Orders.CreateOrder;
 public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CreateOrderDto>
 {
 	private readonly IApplicationDbContext _context;
-	public CreateOrderCommandHandler(IApplicationDbContext context)
+
+
+	//هر کسی بخواهد از این کلاس استفاده کند باید باید
+	//  باید بگه تو باید با این 
+	//CalculateFinalPrice
+	//  کار محاسبه را انجام بده
+	private readonly CalculateFinalPrice _calculateFinalPrice;
+	public CreateOrderCommandHandler(IApplicationDbContext context, CalculateFinalPrice calculateFinalPrice)
 	{
 		_context = context;
+		_calculateFinalPrice = calculateFinalPrice;
 	}
 	public async Task<CreateOrderDto> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
 	{
 		var order =
 			request.MapTo();
 
-		var customer=_context.Customers.Where(w=>w.Id==request.CustomerId).FirstOrDefault();
+		var customer = _context
+			.Customers
+			.Where(w => w.Id == request.CustomerId)
+			.FirstOrDefault();
+
+		decimal finalPriceCalculator =
+			_calculateFinalPrice.Calculate(orderDate: order.OrderDate, price: order.Price);
+
+		order.Price = finalPriceCalculator;
 
 		if (customer != null)
 			order.Customer = customer;
 
-		var entityEntry = 
-			await _context.Orders.AddAsync(order);
 
-		var orderId =  await _context.SaveChangesAsync();
+
+		var entityEntry =
+			await _context.Orders.AddAsync(entity: order);
+
+		var orderId = await _context.SaveChangesAsync();
 
 		return new CreateOrderDto(id: orderId);
+	}
+}
+
+
+
+
+
+
+public abstract class CalculateFinalPrice
+{
+	public abstract decimal Calculate(DateTime? orderDate, decimal price);
+}
+
+public class UsualDiscount : CalculateFinalPrice
+{
+	public override decimal Calculate(DateTime? orderDate, decimal price)
+	{
+		if (orderDate <= DateTime.Now.AddDays(-7)) return price - 20;
+		if (orderDate <= DateTime.Now.AddDays(-14)) return price - 15;
+
+		return price;
 	}
 }
