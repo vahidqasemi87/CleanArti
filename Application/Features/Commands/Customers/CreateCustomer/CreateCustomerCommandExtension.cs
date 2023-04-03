@@ -15,6 +15,7 @@ public static class CreateCustomerCommandExtension
 			//Orders = command.Orders,
 			Password = command.Password,
 			Username = command.Username,
+			NationaCode = command.NationalCode,
 		};
 		return customer;
 	}

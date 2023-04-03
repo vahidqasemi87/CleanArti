@@ -14,5 +14,5 @@ public class Order : BaseEntity
 	public bool IsSend { get; set; } = false;
 	public string? PaymentCode { get; set; }
 	public Customer Customer { get; set; }
-    public decimal Price { get; set; }
+	public decimal Price { get; set; }
 }

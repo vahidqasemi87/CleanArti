@@ -34,6 +34,7 @@ public class OrdersController : ControllerBase
 			IsSend=input.IsSend,
 			OrderDate = input.OrderDate,
 			PaymentCode = input.PaymentCode,
+			Price = input.Price,
 			//CustomerId = input.CustomerId,
 		});
 

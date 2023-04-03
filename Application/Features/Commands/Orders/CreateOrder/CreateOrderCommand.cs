@@ -17,5 +17,6 @@ public class CreateOrderCommand : IRequest<CreateOrderDto>
 	public bool IsSend { get; set; } = false;
 	public string? PaymentCode { get; set; }
     public int CustomerId { get; set; }
+    public decimal Price { get; set; }
     //public Customer? Customer { get; set; }
 }

@@ -18,14 +18,18 @@ public class CustomersController : ControllerBase
 	[HttpPost]
 	public async Task<IActionResult> Get(CreateCustomerViewModel input)
 	{
+		if (!ModelState.IsValid)
+			return BadRequest("موارد منطبق نمی باشد");
+
 		var rr = await _mediator.Send(new CreateCustomerCommand()
 		{
-			Address =  input.Address,
-			Family =   input.Family,
-			Mobile =   input.Mobile,
-			Name =     input.Name,
+			Address = input.Address,
+			Family = input.Family,
+			Mobile = input.Mobile,
+			Name = input.Name,
 			Password = input.Password,
 			Username = input.Username,
+			NationalCode = input.NationalCode,
 		});
 		return Ok(rr);
 	}

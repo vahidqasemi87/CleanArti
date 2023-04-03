@@ -1,4 +1,3 @@
-
 using Application;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -57,7 +56,7 @@ public class Program
 		#endregion
 
 
-		
+
 
 
 

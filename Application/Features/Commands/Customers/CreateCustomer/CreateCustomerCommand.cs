@@ -19,5 +19,7 @@ public class CreateCustomerCommand : ICommand<CreateCustomerDto> //IRequest<Crea
 	public string? Name { get; set; }
 	public string? Mobile { get; set; }
 	public string? Address { get; set; }
-	public IList<Order> Orders { get; set; }
+	[System.ComponentModel.DataAnnotations.RegularExpression(@"\d{10}",ErrorMessage ="کد ملی باید 10 رقم باشد")]
+    public string? NationalCode { get; set; }
+    public IList<Order> Orders { get; set; }
 }
