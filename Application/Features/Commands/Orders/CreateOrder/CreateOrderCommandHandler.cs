@@ -1,5 +1,4 @@
-﻿using Application.Features.Commands.Customers.DeleteCustomer;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using Domain.DTOs.Responses.Orders;
 using MediatR;
 using System;
@@ -58,13 +57,9 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
 }
 
 
-
-
-
-
 public class CalculateFinalPrice
 {
-	public  decimal Calculate(DateTime? orderDate, decimal price)
+	public decimal Calculate(DateTime? orderDate, decimal price)
 	{
 		if (orderDate == null) return price;
 
@@ -74,14 +69,3 @@ public class CalculateFinalPrice
 		return price;
 	}
 }
-
-//public class UsualDiscount : CalculateFinalPrice
-//{
-//	public override decimal Calculate(DateTime? orderDate, decimal price)
-//	{
-//		if (orderDate <= DateTime.Now.AddDays(-7)) return price - 20;
-//		if (orderDate <= DateTime.Now.AddDays(-14)) return price - 15;
-
-//		return price;
-//	}
-//}
