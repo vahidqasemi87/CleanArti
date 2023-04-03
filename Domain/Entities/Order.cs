@@ -15,5 +15,4 @@ public class Order : BaseEntity
 	public string? PaymentCode { get; set; }
 	public Customer Customer { get; set; }
     public decimal Price { get; set; }
-
 }

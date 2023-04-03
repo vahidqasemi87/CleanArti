@@ -4308,24 +4308,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zero\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\sam\\CleanArchitecture\\CleanArti\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "D:\\sam\\CleanArchitecture\\CleanArti\\WebApi\\WebApi.csproj",
-      "packagesPath": "C:\\Users\\Zero\\.nuget\\packages\\",
-      "outputPath": "D:\\sam\\CleanArchitecture\\CleanArti\\WebApi\\obj\\",
+      "projectPath": "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\WebApi\\WebApi.csproj",
+      "packagesPath": "C:\\Users\\v_ghasemi.CSDI\\.nuget\\packages\\",
+      "outputPath": "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Zero\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\v_ghasemi.CSDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4339,14 +4334,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\sam\\CleanArchitecture\\CleanArti\\Application\\Application.csproj": {
-              "projectPath": "D:\\sam\\CleanArchitecture\\CleanArti\\Application\\Application.csproj"
+            "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\Application\\Application.csproj": {
+              "projectPath": "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\Application\\Application.csproj"
             },
-            "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\Domain.csproj"
+            "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\Domain\\Domain.csproj": {
+              "projectPath": "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\Domain\\Domain.csproj"
             },
-            "D:\\sam\\CleanArchitecture\\CleanArti\\Persistence\\Persistence.csproj": {
-              "projectPath": "D:\\sam\\CleanArchitecture\\CleanArti\\Persistence\\Persistence.csproj"
+            "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\Persistence\\Persistence.csproj": {
+              "projectPath": "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\Persistence\\Persistence.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rpt6CB6WZvrSN9nOKxN6BA6v+QIRnUDPcdW0U+EtEdDo7d8o83siNp/0Tjd8BHl5C56X+cyx3+kqn09RUuUvjA==",
+  "dgSpecHash": "2/EDTaSPn9j+4agCz3r4ZJQcTZWiaBgWCq87BTietZdOQrYc9AX+2sL17w0CMKH2NK4dBByY210TyaC6in/N8g==",
   "success": true,
-  "projectFilePath": "D:\\sam\\CleanArchitecture\\CleanArti\\Domain\\Domain.csproj",
+  "projectFilePath": "F:\\Projects\\ZMyProject\\WorkProj\\02\\CleanArti\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
