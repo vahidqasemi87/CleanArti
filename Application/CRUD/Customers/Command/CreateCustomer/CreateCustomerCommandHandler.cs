@@ -1,5 +1,6 @@
 ﻿
 
+using Application.Common.Interfaces.Learning;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.DTOs.Responses.Customers;
@@ -18,18 +19,23 @@ namespace Application.Features.Customers.Command.CreateCustomer;
 
 public class CreateCustomerCommandHandler : ICommandHandler<CreateCustomerCommand, CreateCustomerDto>// IRequestHandler<CreateCustomerCommand, CreateCustomerDto>
 {
-	private readonly IApplicationDbContext _context;
+	private readonly IUnitOfWork_New _unitOfWork_New;
+	private readonly IRepository_New<Customer> _repository_New;
 	private readonly IMapper _mapper;
 
-	public CreateCustomerCommandHandler(IApplicationDbContext context, IMapper mapper)
+	public CreateCustomerCommandHandler( IMapper mapper,
+		IUnitOfWork_New unitOfWork_New, IRepository_New<Customer> repository_New)
 	{
-		_context = context;
 		_mapper = mapper;
+
+		_unitOfWork_New = unitOfWork_New;
+		_repository_New = repository_New;
+
 	}
 
 	public async Task<CreateCustomerDto> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
 	{
-		//var customer = request.MapTo();
+		
 
 		var customer = new Customer();
 
@@ -38,9 +44,12 @@ public class CreateCustomerCommandHandler : ICommandHandler<CreateCustomerComman
 			_mapper.Map<Customer>(request);
 
 
-		var entityEntry =
-			await _context.Customers.AddAsync(customer);
-		var orderId = await _context.SaveChangesAsync();
+		
+
+		_repository_New.Add(customer);
+		var orderId = await _unitOfWork_New.SaveChangesAsync();
+
+		
 
 		return new CreateCustomerDto(id: orderId);
 	}

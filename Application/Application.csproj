@@ -28,6 +28,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Common\Infrastructures\" />
 	  <Folder Include="CRUD\Orders\EventHandlers\" />
 	  <Folder Include="CRUD\Products\EventHandlers\" />
 	</ItemGroup>
