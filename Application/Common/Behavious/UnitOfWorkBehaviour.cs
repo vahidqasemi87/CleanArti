@@ -1,11 +1,8 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces.Learning;
 using Application.Common.Z;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,9 +11,9 @@ namespace Application.Common.Behavious;
 public class UnitOfWorkBehaviour<TRequest, TResponse>
 	: IPipelineBehavior<TRequest, TResponse> where TRequest : class, IRequest<TResponse>
 {
-	private readonly IUnitOfWork _unitOfWork;
+	private readonly IUnitOfWork_New _unitOfWork;
 	private readonly ILogger<TRequest> _logger;
-	public UnitOfWorkBehaviour(IUnitOfWork unitOfWork, ILogger<TRequest> logger)
+	public UnitOfWorkBehaviour(IUnitOfWork_New unitOfWork, ILogger<TRequest> logger)
 	{
 		_unitOfWork = unitOfWork;
 		_logger = logger;
@@ -24,8 +21,8 @@ public class UnitOfWorkBehaviour<TRequest, TResponse>
 
 	public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
 	{
-		_logger.LogDebug(EventIds.Transaction, "Start");
-		await _unitOfWork.StartAsync();
+		//_logger.LogDebug(EventIds.Transaction, "Start");
+		//await _unitOfWork.StartAsync();
 
 		try
 		{
