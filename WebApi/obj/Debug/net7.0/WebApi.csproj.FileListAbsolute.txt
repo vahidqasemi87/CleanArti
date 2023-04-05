@@ -278,7 +278,6 @@ F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\FluentValid
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Humanizer.dll
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\MediatR.dll
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\MediatR.Contracts.dll
-F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -354,3 +353,9 @@ F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\obj\Debug\net7.0\refint\WebA
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\obj\Debug\net7.0\WebApi.pdb
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\obj\Debug\net7.0\WebApi.genruntimeconfig.cache
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\obj\Debug\net7.0\ref\WebApi.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\AutoMapper.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Destructurama.Attributed.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

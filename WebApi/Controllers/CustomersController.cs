@@ -1,4 +1,5 @@
-﻿using Application.Features.Commands.Customers.CreateCustomer;
+﻿
+using Application.Features.Customers.Command.CreateCustomer;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

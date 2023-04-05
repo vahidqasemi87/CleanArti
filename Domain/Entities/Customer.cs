@@ -14,7 +14,7 @@ public class Customer:BaseEntity
 	public string? Family { get; set; }
 	public string? Name { get; set; }
 
-	[System.ComponentModel.DataAnnotations.RegularExpression(@"\d{10}")]
+	//[System.ComponentModel.DataAnnotations.RegularExpression(@"\d{10}")]
     public string? NationaCode { get; set; }
     public string? Mobile { get; set; }
 	public string? Address { get; set; }

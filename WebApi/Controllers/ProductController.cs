@@ -1,5 +1,5 @@
-﻿using Application.Features.Commands.Customers.CreateCustomer;
-using Application.Features.Commands.Products.CreateProduct;
+﻿
+using Application.Features.Products.Command.CreateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
