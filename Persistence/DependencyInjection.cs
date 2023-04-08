@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,9 +13,9 @@ public static class DependencyInjection
 		services.AddDbContext<ApplicationDbContext>(options =>
 		{
 			options.UseSqlServer(connectionString: configuration.GetConnectionString(name: "Standard"),
-				b=>
+				b =>
 				b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
 		});
-		services.AddScoped<IApplicationDbContext>(p=>p.GetService<ApplicationDbContext>()!);
+		services.AddScoped<IApplicationDbContext>(p => p.GetService<ApplicationDbContext>()!);
 	}
 }

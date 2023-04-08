@@ -6,18 +6,18 @@ namespace Application.Common.Options;
 
 public class AssignOptions
 {
-    public List<Client>? Clients { get; set; }
+	public List<Client>? Clients { get; set; }
 }
 
 public class Client
 {
-    public string? Title { get; set; }
-    [JsonIgnore]
-    public string? Name { get; set; }
-    public string? Nin { get; set; }
-    public string? FromDate { get; set; }
+	public string? Title { get; set; }
 	[JsonIgnore]
-    public SejamStatus[]? RealPersonValidSejamStatus { get; set; }
+	public string? Name { get; set; }
+	public string? Nin { get; set; }
+	public string? FromDate { get; set; }
+	[JsonIgnore]
+	public SejamStatus[]? RealPersonValidSejamStatus { get; set; }
 	[JsonIgnore]
 	public SejamStatus[]? LegalPersonValidSejamStatus { get; set; }
 	[JsonIgnore]

@@ -1,8 +1,8 @@
 ﻿using IdentityDemo.Command.UserAggregate;
-using IdentityDemo.Contracts.UserAggregate;
 using IdentityDemo.Contracts;
-using IdentityDemo.Domain.UserAggregate;
+using IdentityDemo.Contracts.UserAggregate;
 using IdentityDemo.Domain;
+using IdentityDemo.Domain.UserAggregate;
 using IdentityDemo.Infrastructurs.Context;
 using IdentityDemo.Infrastructurs.Data;
 using Microsoft.AspNetCore.Identity;

@@ -14,7 +14,7 @@ namespace Application.Features.Products.Command.CreateProduct;
 public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, CreateProductDto>
 {
 	private readonly IUnitOfWork _unitOfWork;
-	
+
 	private readonly IProductRepository _productRepository;
 
 	private readonly IMapper _mapper;

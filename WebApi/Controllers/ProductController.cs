@@ -1,7 +1,6 @@
 ﻿
 using Application.Features.Products.Command.CreateProduct;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebApi.ViewModels;

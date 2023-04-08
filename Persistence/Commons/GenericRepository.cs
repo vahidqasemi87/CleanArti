@@ -1,10 +1,7 @@
 ﻿using Application.Common.Interfaces.Learning02;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Persistence.Commons
@@ -12,13 +9,13 @@ namespace Persistence.Commons
 	public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
 	{
 		public readonly ApplicationDbContext _context;
-        public DbSet<T> DbSet { get; set; }
-        public GenericRepository(ApplicationDbContext context)
-        {
+		public DbSet<T> DbSet { get; set; }
+		public GenericRepository(ApplicationDbContext context)
+		{
 			_context = context;
 			DbSet = _context.Set<T>();
-        }
-        public async Task AddAsync(T entity)
+		}
+		public async Task AddAsync(T entity)
 		{
 			await DbSet.AddAsync(entity);
 		}
@@ -41,12 +38,12 @@ namespace Persistence.Commons
 			return result;
 		}
 
-		public async Task Update(int id,T entity)
+		public async Task Update(int id, T entity)
 		{
 			var result = await DbSet.FindAsync(id);
 			DbSet.Update(result);
 		}
 
-		
+
 	}
 }

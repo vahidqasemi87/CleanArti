@@ -1,6 +1,6 @@
-﻿using Step01;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
+using Step01;
 
 namespace Step04;
 
@@ -16,11 +16,11 @@ public sealed class UpdateUserCommandValidator : AbstractValidator<UpdateUserCom
 	{
 		RuleFor(x => x.UserId).NotEmpty();
 
-		RuleFor(x=>x.FirstName)
+		RuleFor(x => x.FirstName)
 			.NotEmpty()
 			.MaximumLength(100);
 
-		RuleFor(x=>x.LastName)
+		RuleFor(x => x.LastName)
 			.NotEmpty()
 			.MaximumLength(100);
 	}

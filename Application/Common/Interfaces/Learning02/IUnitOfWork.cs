@@ -1,16 +1,14 @@
 ﻿using Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 
 namespace Application.Common.Interfaces.Learning02;
 
 public interface IUnitOfWork //: IDisposable
 {
-     ICustomerRepository  Customers { get; }
-     IOrderRepository Orders { get; }
-     IProductRepository Products { get; }
+	ICustomerRepository Customers { get; }
+	IOrderRepository Orders { get; }
+	IProductRepository Products { get; }
 	Task<int> Complete();
 }
 

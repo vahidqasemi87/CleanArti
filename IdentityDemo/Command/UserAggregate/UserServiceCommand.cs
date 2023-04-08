@@ -60,7 +60,7 @@ public class UserServiceCommand : IUserServiceCommand
 
 		//string passwordHash = Helpers.Security.Hashing.GetSha256(loginDto.Password);
 
-		if(string.IsNullOrWhiteSpace(loginDto.Password))
+		if (string.IsNullOrWhiteSpace(loginDto.Password))
 		{
 			return null;
 		}
@@ -68,11 +68,11 @@ public class UserServiceCommand : IUserServiceCommand
 		string? masterPassword =
 			getInfo.PasswordHash;//ApplicationSettings.MasterPassword;
 
-		
 
-		
-		var validationPassword = 
-			await _userManager.CheckPasswordAsync(getInfo,loginDto.Password);
+
+
+		var validationPassword =
+			await _userManager.CheckPasswordAsync(getInfo, loginDto.Password);
 
 
 		if (validationPassword == false) return null;

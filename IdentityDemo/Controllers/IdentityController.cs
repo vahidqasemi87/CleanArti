@@ -1,6 +1,5 @@
 ﻿using IdentityDemo.Contracts.UserAggregate;
 using IdentityDemo.Domain.UserAggregate;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityDemo.Controllers;
@@ -38,7 +37,7 @@ public class IdentityController : ControllerBase
 	[HttpPost("UserLogin")]
 	public async Task<IActionResult> LoginUser([FromBody] LoginDto user)
 	{
-		var findedUser = 
+		var findedUser =
 			await _userServiceCommand.Login(loginDto: user);
 		if (user != null)
 			return Ok(user);

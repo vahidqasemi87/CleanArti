@@ -1,9 +1,8 @@
 ﻿using Domain.Common;
-using System.Collections.Generic;
 
 namespace Domain.Entities;
 
-public class Customer:BaseEntity
+public class Customer : BaseEntity
 {
 	public Customer()
 	{
@@ -15,8 +14,8 @@ public class Customer:BaseEntity
 	public string? Name { get; set; }
 
 	//[System.ComponentModel.DataAnnotations.RegularExpression(@"\d{10}")]
-    public string? NationaCode { get; set; }
-    public string? Mobile { get; set; }
+	public string? NationaCode { get; set; }
+	public string? Mobile { get; set; }
 	public string? Address { get; set; }
 	//public IList<Order> Orders { get; set; }
 }

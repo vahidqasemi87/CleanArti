@@ -1,10 +1,8 @@
 ﻿
 using Application.Common.Behavious;
-using Application.Common.Interfaces.Learning02;
 using Application.Common.Mappings;
 using Application.Features.Orders.Command.CreateOrder;
 using AutoMapper;
-using Domain.Entities;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 

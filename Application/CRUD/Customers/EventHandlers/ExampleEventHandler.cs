@@ -1,7 +1,5 @@
-﻿using MediatR;
+﻿namespace Application.CRUD.Customers.EventHandlers;
 
-namespace Application.CRUD.Customers.EventHandlers;
-
-public class ExampleEventHandler 
+public class ExampleEventHandler
 {
 }

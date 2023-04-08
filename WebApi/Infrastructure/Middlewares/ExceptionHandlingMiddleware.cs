@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
-
-namespace WebApi.Infrastructure.Middlewares;
+﻿namespace WebApi.Infrastructure.Middlewares;
 
 public class ExceptionHandlingMiddleware //: IMiddleware
 {

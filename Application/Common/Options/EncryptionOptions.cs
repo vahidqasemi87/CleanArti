@@ -2,5 +2,5 @@
 
 public class EncryptionOptions
 {
-    public string SecretKey { get; set; }
+	public string SecretKey { get; set; }
 }

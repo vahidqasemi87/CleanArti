@@ -9,26 +9,26 @@ namespace Application.Features.Products.Command.UpdateProduct;
 
 public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, int>
 {
-    private readonly IApplicationDbContext _context;
-    public UpdateProductCommandHandler(IApplicationDbContext context)
-    {
-        _context = context;
-    }
-    public async Task<int> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
-    {
-        var findedProduct = await _context.Products.Where(w => w.Id == request.Id)
-            .FirstOrDefaultAsync();
+	private readonly IApplicationDbContext _context;
+	public UpdateProductCommandHandler(IApplicationDbContext context)
+	{
+		_context = context;
+	}
+	public async Task<int> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
+	{
+		var findedProduct = await _context.Products.Where(w => w.Id == request.Id)
+			.FirstOrDefaultAsync();
 
-        if (findedProduct == null)
-            return default;
+		if (findedProduct == null)
+			return default;
 
-        findedProduct.Barcode = request.Barcode;
-        findedProduct.Name = request.Name;
-        findedProduct.Description = request.Description;
-        findedProduct.Rate = request.Rate;
+		findedProduct.Barcode = request.Barcode;
+		findedProduct.Name = request.Name;
+		findedProduct.Description = request.Description;
+		findedProduct.Rate = request.Rate;
 
 
-        await _context.SaveChangesAsync();
-        return findedProduct.Id;
-    }
+		await _context.SaveChangesAsync();
+		return findedProduct.Id;
+	}
 }

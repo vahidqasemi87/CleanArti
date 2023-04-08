@@ -10,14 +10,14 @@ public class Repository<T> : IRepository<T> where T : class
 	private readonly DbSet<T> Entity;
 
 
-    public Repository(IdentityServerDbContext context)
-    {
+	public Repository(IdentityServerDbContext context)
+	{
 		_context = context;
 		Entity = _context.Set<T>();
-    }
+	}
 
 
-    public void Add(T entity)
+	public void Add(T entity)
 	{
 		Entity.Add(entity);
 	}

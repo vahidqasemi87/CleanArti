@@ -6,11 +6,11 @@ namespace IdentityDemo.Infrastructurs.Data;
 public class UnitOfWork : IUnitOfWord
 {
 	private readonly IdentityServerDbContext _context;
-    public UnitOfWork(IdentityServerDbContext  context)
-    {
+	public UnitOfWork(IdentityServerDbContext context)
+	{
 		_context = context;
-    }
-    public void SaveChange()
+	}
+	public void SaveChange()
 	{
 		_context.SaveChanges();
 	}

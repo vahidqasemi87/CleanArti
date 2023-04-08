@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace WebApi.ViewModels;
+﻿namespace WebApi.ViewModels;
 
 public class CreateProductViewModel
 {

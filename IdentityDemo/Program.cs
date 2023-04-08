@@ -10,7 +10,6 @@ using IdentityDemo.Infrastructurs.Data;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace IdentityDemo;
 
@@ -101,29 +100,29 @@ public class Program
 
 		var app = builder.Build();
 
-			// Configure the HTTP request pipeline.
-			if (app.Environment.IsDevelopment())
-			{
-				app.UseSwagger();
-				app.UseSwaggerUI();
-			}
-
-			app.UseCors(delegate (CorsPolicyBuilder builder)
-			{
-				builder.AllowAnyOrigin();
-				builder.AllowAnyHeader();
-				builder.AllowAnyMethod();
-				builder.WithExposedHeaders("Content-Disposition");
-			});
-
-			app.UseHttpsRedirection();
-
-			app.UseAuthentication();
-			app.UseAuthorization();
-
-
-			app.MapControllers();
-
-			app.Run();
+		// Configure the HTTP request pipeline.
+		if (app.Environment.IsDevelopment())
+		{
+			app.UseSwagger();
+			app.UseSwaggerUI();
 		}
+
+		app.UseCors(delegate (CorsPolicyBuilder builder)
+		{
+			builder.AllowAnyOrigin();
+			builder.AllowAnyHeader();
+			builder.AllowAnyMethod();
+			builder.WithExposedHeaders("Content-Disposition");
+		});
+
+		app.UseHttpsRedirection();
+
+		app.UseAuthentication();
+		app.UseAuthorization();
+
+
+		app.MapControllers();
+
+		app.Run();
+	}
 }

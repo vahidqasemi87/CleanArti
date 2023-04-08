@@ -3,9 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Application.Common.Z;
 [SwaggerSchema(Title = "ساختار خطا", Description = "متن و کد خطا در این ساختار ارائه میشود")]
@@ -35,14 +33,14 @@ public class Notification
 		IsInfrastructure = isInfrastructure;
 	}
 
-	[SwaggerSchema(Title ="کد خطا")]
-    public string ErrorCode { get; set; }
+	[SwaggerSchema(Title = "کد خطا")]
+	public string ErrorCode { get; set; }
 
 	[SwaggerSchema(Title = "متن خطا")]
-    public string Message { get; set; }
+	public string Message { get; set; }
 
 	[JsonIgnore]
-    public bool IsInfrastructure { get; set; }
+	public bool IsInfrastructure { get; set; }
 }
 
 public static class Results
