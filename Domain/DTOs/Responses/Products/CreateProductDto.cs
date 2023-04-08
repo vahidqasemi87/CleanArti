@@ -8,7 +8,7 @@ namespace Domain.DTOs.Responses.Products;
 
 public class CreateProductDto
 {
-	public CreateProductDto(int id)
+    public CreateProductDto(int id)
 	{
 		Id = id;
 	}

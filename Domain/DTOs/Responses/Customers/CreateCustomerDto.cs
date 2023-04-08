@@ -8,7 +8,8 @@ namespace Domain.DTOs.Responses.Customers;
 
 public class CreateCustomerDto
 {
-	public CreateCustomerDto(int id)
+
+    public CreateCustomerDto(int id)
 	{
 		Id = id;
 	}

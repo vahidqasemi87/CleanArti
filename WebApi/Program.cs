@@ -1,5 +1,5 @@
 using Application;
-using MediatR;
+using Application.Common.Interfaces.Learning02;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Persistence;
 using Persistence.Context;
+using Persistence.Customers;
+using Persistence.Orders;
+using Persistence.Products;
+using Persistence.UOF;
 using WebApi.Infrastructure.AppSettings;
 
 namespace WebApi;
@@ -32,8 +36,14 @@ public class Program
 		});
 		#endregion
 
+
+		builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+		builder.Services.AddScoped<ICustomerRepository, CustomersRepository>();
+		builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+		builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
 		#region [MediatR]
-		builder.Services.AddMediatR(options => 
+		builder.Services.AddMediatR(options =>
 		{
 			options.RegisterServicesFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
 		});
@@ -43,7 +53,7 @@ public class Program
 		// Add services to the container.
 
 		builder.Services.AddControllers();
-
+		
 
 		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 		builder.Services.AddEndpointsApiExplorer();

@@ -1,31 +1,26 @@
-﻿using Application.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Application.Common.Interfaces;
 
-namespace Application.Common.Interfaces;
+//public class Repository<T> : IRepository<T> where T : class
+//{
+//	//private readonly IApplicationDbContext _context;
+//	private readonly ContextDemo _context;
+//	private readonly DbSet<T> Entity;
 
-public class Repository<T> : IRepository<T> where T : class
-{
-	private readonly IApplicationDbContext _context;
-	private readonly DbSet<T> Entity;
+//    public Repository(ContextDemo context)
+//    {
+//		_context = context;
+//		Entity = _context.Set<T>();
 
-    public Repository(IApplicationDbContext context)
-    {
-		_context = context;
-		
-    }
-    public Task AddAsync(T entity)
-	{
-		
-		throw new NotImplementedException();
-	}
+//    }
+//    public async Task AddAsync(T entity)
+//	{
 
-	public void Delete(T entity)
-	{
-		throw new NotImplementedException();
-	}
-}
+//		Entity.Add(entity);
+//		_context.SaveChanges();
+//	}
+
+//	public void Delete(T entity)
+//	{
+//		throw new NotImplementedException();
+//	}
+//}

@@ -1,17 +1,15 @@
-﻿using Application.Common.Interfaces;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
+using System;
 using System.Threading.Tasks;
 
 namespace Persistence.Context;
 
-public class ApplicationDbContext : Microsoft.EntityFrameworkCore.DbContext, IApplicationDbContext
+public class ApplicationDbContext : DbContext, IApplicationDbContext 
 {
 	public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
 	{
-
 	}
 
 
@@ -28,15 +26,5 @@ public class ApplicationDbContext : Microsoft.EntityFrameworkCore.DbContext, IAp
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		modelBuilder.ApplyConfigurationsFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
-	}
-}
-public class ApplicationDbContextFactory :
-	IDesignTimeDbContextFactory<ApplicationDbContext>
-{
-	public ApplicationDbContext CreateDbContext(string[] args)
-	{
-		var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
-		builder.UseSqlServer("server=.;database=CleanDb;uid=sa;pwd=Ss12345!@#$%;TrustServerCertificate=true;");
-		return new ApplicationDbContext(builder.Options);
 	}
 }

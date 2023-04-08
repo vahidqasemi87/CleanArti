@@ -7,7 +7,9 @@ using System.Windows.Input;
 
 namespace Application.Features.Customers.Command.CreateCustomer;
 
-public class CreateCustomerCommand : ICommand<CreateCustomerDto> //IRequest<CreateCustomerDto>
+public class CreateCustomerCommand : 
+    //ICommand<CreateCustomerDto>
+    IRequest<CreateCustomerDto>
 {
     public CreateCustomerCommand()
     {
