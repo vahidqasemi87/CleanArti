@@ -1,10 +1,11 @@
 ﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Application.Common.Interfaces.Learning02;
 
-public interface IUnitOfWork //: IDisposable
+public interface IUnitOfWork : IDisposable
 {
 	ICustomerRepository Customers { get; }
 	IOrderRepository Orders { get; }
