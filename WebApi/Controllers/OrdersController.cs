@@ -53,6 +53,5 @@ public class OrdersController : ControllerBase
 			Logger.LogError(message: ex.Message);
 			return BadRequest(ex.Message);
 		}
-
 	}
 }

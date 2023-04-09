@@ -55,7 +55,11 @@ public class Program
 
 		var rootProject =
 			builder.Environment.ContentRootPath;
-		var fileName = $"{rootProject}\\Log.txt";
+
+		var fileName = $"{rootProject}\\LogFolder\\Log.txt";
+
+		if (!System.IO.Directory.Exists($"{rootProject}\\LogFolder"))
+			System.IO.Directory.CreateDirectory($"{rootProject}\\LogFolder");
 
 		#region [Serilog Configuration]
 		IConfigurationRoot configuration =
