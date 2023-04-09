@@ -69,7 +69,7 @@ public class Program
 
 
 		//روش اول از طریق 
-		//appSettings
+		//appSettings -->
 
 		//builder
 		//	.Host
@@ -80,7 +80,8 @@ public class Program
 
 
 		// روش دوم از طرق 
-		// C#
+		// C# -->
+
 		Log.Logger = new LoggerConfiguration()
 			.ReadFrom.Configuration(configuration)
 			.Enrich.FromLogContext()
@@ -105,8 +106,9 @@ public class Program
 
 		// Add services to the container.
 		builder.Services.AddControllers();
-		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 		builder.Services.AddEndpointsApiExplorer();
+
 		builder.Services.AddSwaggerGen();
 
 		#region [Read from appsettings config]

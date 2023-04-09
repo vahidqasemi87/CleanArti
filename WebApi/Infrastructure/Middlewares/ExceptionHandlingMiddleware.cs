@@ -25,7 +25,7 @@ public class ErrorHandlingMiddleware
 		}
 		catch (Exception ex)
 		{
-			logger.LogError(ex, "Unhandled exception");
+			logger.LogError(exception: ex, message: "Unhandled exception");
 
 			context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 			context.Response.ContentType = "application/json";

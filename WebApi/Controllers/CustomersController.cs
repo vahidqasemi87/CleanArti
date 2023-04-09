@@ -8,7 +8,7 @@ using WebApi.ViewModels;
 
 namespace WebApi.Controllers;
 
-[Route("api/[controller]")]
+[Route(template: "api/[controller]")]
 [ApiController]
 public class CustomersController : ControllerBase
 {
@@ -18,20 +18,20 @@ public class CustomersController : ControllerBase
 	{
 		_mediator = mediator;
 		_logger = logger;
-		_logger.LogInformation("Customer Controller is called ... ");
+		_logger.LogInformation(message: "Customer Controller is called ... ");
 	}
 	[HttpPost]
 	public async Task<IActionResult> Get(CreateCustomerViewModel input)
 	{
 		try
 		{
-			_logger.LogInformation("Customer get method staeting ... ");
+			_logger.LogInformation(message: "Customer get method staeting ... ");
 			if (!ModelState.IsValid)
-				return BadRequest("موارد منطبق نمی باشد");
+				return BadRequest(error: "موارد منطبق نمی باشد");
 
 			//throw new System.Exception("خطای ساختگی");
 
-			var rr = await _mediator.Send(new CreateCustomerCommand()
+			var rr = await _mediator.Send(request: new CreateCustomerCommand()
 			{
 				Address = input.Address,
 				Family = input.Family,
@@ -41,12 +41,13 @@ public class CustomersController : ControllerBase
 				Username = input.Username,
 				NationalCode = input.NationalCode,
 			});
-			return Ok(rr);
+
+			return Ok(value: rr);
 		}
 		catch (System.Exception ex)
 		{
 			_logger.LogError(message: ex.Message);
-			return BadRequest(ex.Message);
+			return BadRequest(error: ex.Message);
 		}
 	}
 }
