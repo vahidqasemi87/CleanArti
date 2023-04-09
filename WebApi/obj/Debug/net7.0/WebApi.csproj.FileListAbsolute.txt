@@ -359,3 +359,13 @@ F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\obj\Debug\net7.0\refint\WebA
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\obj\Debug\net7.0\WebApi.pdb
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\obj\Debug\net7.0\WebApi.genruntimeconfig.cache
 F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\obj\Debug\net7.0\ref\WebApi.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.AspNetCore.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Extensions.Hosting.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Extensions.Logging.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Formatting.Compact.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Settings.Configuration.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Sinks.Console.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Sinks.Debug.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Sinks.File.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Sinks.PeriodicBatching.dll
+F:\Projects\ZMyProject\WorkProj\02\CleanArti\WebApi\bin\Debug\net7.0\Serilog.Sinks.Seq.dll
