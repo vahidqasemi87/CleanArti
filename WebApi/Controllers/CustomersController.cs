@@ -29,7 +29,7 @@ public class CustomersController : ControllerBase
 			if (!ModelState.IsValid)
 				return BadRequest("موارد منطبق نمی باشد");
 
-			throw new System.Exception("خطای ساختگی");
+			//throw new System.Exception("خطای ساختگی");
 
 			var rr = await _mediator.Send(new CreateCustomerCommand()
 			{
@@ -48,6 +48,5 @@ public class CustomersController : ControllerBase
 			_logger.LogError(message: ex.Message);
 			return BadRequest(ex.Message);
 		}
-
 	}
 }

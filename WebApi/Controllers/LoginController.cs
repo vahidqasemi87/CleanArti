@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
@@ -14,39 +15,55 @@ namespace WebApi.Controllers;
 public class LoginController : ControllerBase
 {
 	private readonly AddressApi _addressApi;
-	public LoginController(IOptions<AddressApi> addressApi)
+	private readonly ILogger<LoginController> _logger;
+	public LoginController(IOptions<AddressApi> addressApi, ILogger<LoginController> logger)
 	{
 		_addressApi = addressApi.Value;
+		_logger = logger;
+		_logger.LogInformation("Login Controller is called ... ");
 	}
 
-	[HttpPost("Login")]
+	[HttpPost(template: "Login")]
 	public async Task<IActionResult> Login(UserLogin userLogin)
 	{
-		var options = new RestClientOptions("https://localhost:7001")
+		_logger.LogInformation("Login get method staeting ... ");
+		try
 		{
-			MaxTimeout = -1,
-		};
-		var client = new RestClient(options);
+			var options = new RestClientOptions("https://localhost:7001")
+			{
+				MaxTimeout = -1,
+			};
+			var client = new RestClient(options);
 
-		string requestUrl = _addressApi.RequestLogin!;
-		var request = new RestRequest(requestUrl, Method.Post);
+			string requestUrl = _addressApi.RequestLogin!;
+			var request = new RestRequest(requestUrl, Method.Post);
 
 
 
-		request.AddHeader("Content-Type", "application/json");
+			request.AddHeader("Content-Type", "application/json");
 
-		//var body = @$"username:{userLogin.Username},password:{userLogin.Password}";
+			//var body = @$"username:{userLogin.Username},password:{userLogin.Password}";
 
-		var body = JsonConvert.SerializeObject(userLogin);
+			var body = JsonConvert.SerializeObject(userLogin);
 
-		request.AddStringBody(body, DataFormat.Json);
-		RestResponse response = await client.ExecuteAsync(request);
-		Console.WriteLine(response.Content);
-		if (response.IsSuccessful)
-		{
-			return Ok(response);
+			request.AddStringBody(body, DataFormat.Json);
+			RestResponse response = await client.ExecuteAsync(request);
+			Console.WriteLine(response.Content);
+			if (response.IsSuccessful)
+			{
+				return Ok(response);
+			}
+			return BadRequest();
 		}
-		return BadRequest();
+		catch (Exception ex)
+		{
+			_logger.LogError(message: ex.Message);
+			return BadRequest(ex.Message);
+		}
+
+
+
+
 
 	}
 }
