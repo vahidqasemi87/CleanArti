@@ -10,7 +10,7 @@ using WebApi.ViewModels;
 
 namespace WebApi.Controllers;
 
-[Route("api/[controller]")]
+[Route(template: "api/[controller]")]
 [ApiController]
 public class LoginController : ControllerBase
 {

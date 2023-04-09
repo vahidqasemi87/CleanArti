@@ -1,5 +1,4 @@
-﻿
-using Application.Features.Customers.Command.CreateCustomer;
+﻿using Application.Features.Customers.Command.CreateCustomer;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
