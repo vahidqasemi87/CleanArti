@@ -14,6 +14,7 @@ using Persistence.UOF;
 using Serilog;
 using System;
 using WebApi.Infrastructure.AppSettings;
+using WebApi.Infrastructure.Middlewares;
 
 namespace WebApi;
 
@@ -22,7 +23,6 @@ public class Program
 	public static void Main(string[] args)
 	{
 		WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
-
 
 		#region[Add Dependency injection]
 
@@ -45,7 +45,6 @@ public class Program
 		builder.Services.AddScoped<IProductRepository, ProductRepository>();
 		#endregion
 
-
 		#region [MediatR]
 		builder.Services.AddMediatR(options =>
 		{
@@ -53,6 +52,7 @@ public class Program
 		});
 		#endregion
 
+		#region [Generate root Path]
 		var rootProject =
 			builder.Environment.ContentRootPath;
 
@@ -60,6 +60,7 @@ public class Program
 
 		if (!System.IO.Directory.Exists($"{rootProject}\\LogFolder"))
 			System.IO.Directory.CreateDirectory($"{rootProject}\\LogFolder");
+		#endregion
 
 		#region [Serilog Configuration]
 		IConfigurationRoot configuration =
@@ -103,10 +104,7 @@ public class Program
 
 
 		// Add services to the container.
-
 		builder.Services.AddControllers();
-
-
 		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
@@ -114,12 +112,6 @@ public class Program
 		#region [Read from appsettings config]
 		builder.Services.Configure<AddressApi>(config: builder.Configuration.GetSection(key: "AddressApi"));
 		#endregion
-
-
-
-
-
-
 
 		var app = builder.Build();
 
@@ -130,16 +122,15 @@ public class Program
 			app.UseSwaggerUI();
 		}
 
-
 		app.UseSerilogRequestLogging();
-
 
 		app.UseHttpsRedirection();
 
 		app.UseAuthorization();
 
-
 		app.MapControllers();
+
+		app.UseMiddleware<ErrorHandlingMiddleware>();
 
 		app.Run();
 	}
