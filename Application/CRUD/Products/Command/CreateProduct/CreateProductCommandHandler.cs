@@ -44,7 +44,9 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
 
 		product = _mapper.Map<Product>(request);
 
-		await _productRepository.AddAsync(product);
+		//await _productRepository.AddAsync(product);
+
+		await _unitOfWork.Products.AddAsync(product);
 		var result = await _unitOfWork.CompleteAsync();
 		return new CreateProductDto(id: result);
 

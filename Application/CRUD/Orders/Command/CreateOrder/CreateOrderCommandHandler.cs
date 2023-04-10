@@ -79,7 +79,8 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
 
 
 
-		await _orderRepository.AddAsync(order);
+		//await _orderRepository.AddAsync(order);
+		await _unitOfWork.Orders.AddAsync(order);
 		var orderId = await _unitOfWork.CompleteAsync();
 
 

@@ -27,8 +27,8 @@ public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerComman
 		if (findCustomer != null)
 		{
 			//var entityEntry = _context.Customers.Remove(findCustomer);
-			await _customerRepository.Delete(findCustomer.Id);
-
+			//await _customerRepository.Delete(findCustomer.Id);
+			await _unitOfWork.Customers.Delete(findCustomer.Id);
 			var resultId =
 				await _unitOfWork.CompleteAsync();
 

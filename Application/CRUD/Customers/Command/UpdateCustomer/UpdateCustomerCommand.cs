@@ -38,7 +38,8 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 		//	.FirstOrDefaultAsync();
 
 		var findedCustomer
-			= await _customerRepository.GetAsync(request.Id);
+			= await _unitOfWork.Customers.GetAsync(request.Id);
+			//= await _customerRepository.GetAsync(request.Id);
 
 		if (findedCustomer != null)
 		{

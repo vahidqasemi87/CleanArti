@@ -36,7 +36,8 @@ public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, int
 		//	.FirstOrDefaultAsync();
 
 		var findedOrder =
-			await _orderRepository.GetAsync(request.Id);
+			await _unitOfWork.Orders.GetAsync(request.Id);
+		//await _orderRepository.GetAsync(request.Id);
 
 		if (findedOrder != null)
 		{

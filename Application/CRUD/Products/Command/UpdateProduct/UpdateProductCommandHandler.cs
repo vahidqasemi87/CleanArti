@@ -20,7 +20,8 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand,
 		//	.FirstOrDefaultAsync();
 
 		var findedProduct =
-			 await _productRepository.GetAsync(request.Id);
+			await _unitOfWork.Products.GetAsync(request.Id);
+		//await _productRepository.GetAsync(request.Id);
 
 		if (findedProduct == null)
 			return default;

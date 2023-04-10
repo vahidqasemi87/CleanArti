@@ -24,13 +24,16 @@ public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand, int
 	}
 	public async Task<int> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
 	{
-		var findedOrder = await _orderRepository.GetAsync(id: request.Id);
+		var findedOrder =
+			await _unitOfWork.Orders.GetAsync(id: request.Id);
+			//await _orderRepository.GetAsync(id: request.Id);
 
 		//var findedOrder = await _context.Orders.Where(w => w.Id == request.Id)
 		//	.FirstOrDefaultAsync();
 		if (findedOrder != null)
 		{
-			await _orderRepository.Delete(findedOrder.Id);
+			//await _orderRepository.Delete(findedOrder.Id);
+			await _unitOfWork.Orders.Delete(findedOrder.Id);
 			//var entityEntry = _context.Orders.Remove(findedOrder);
 			//var finalId = await _context.SaveChangesAsync();
 			var finalId = await _unitOfWork.CompleteAsync();

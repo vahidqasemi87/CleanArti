@@ -22,8 +22,7 @@ public class CreateCustomerCommandHandler :
 
 
 	public CreateCustomerCommandHandler(
-		IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IValidator<CreateCustomerCommand> validator
-		)
+		IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IValidator<CreateCustomerCommand> validator)
 	{
 		_mapper = mapper;
 		_validator = validator;
@@ -39,7 +38,7 @@ public class CreateCustomerCommandHandler :
 
 		if (!result.IsValid)
 		{
-			//To do
+			//To do (Nitification Design pattern))
 		}
 
 		var customer = new Customer();
@@ -51,7 +50,8 @@ public class CreateCustomerCommandHandler :
 
 
 
-		await _customerRepository.AddAsync(customer);
+		//await _customerRepository.AddAsync(customer);
+		await _unitOfWork.Customers.AddAsync(customer);
 		var orderId = await _unitOfWork.CompleteAsync();
 
 

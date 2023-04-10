@@ -21,7 +21,8 @@ public class DeleteProductByIdCommandHandler : IRequestHandler<DeleteProductById
 		//	await _context.Products.Where(w => w.Id == request.Id).FirstOrDefaultAsync();
 
 		var findedProduct =
-			await _productRepository.GetAsync(request.Id);
+			await _unitOfWork.Products.GetAsync(request.Id);
+		//await _productRepository.GetAsync(request.Id);
 
 		if (findedProduct != null)
 		{
