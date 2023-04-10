@@ -38,9 +38,10 @@ public class CreateCustomerCommandHandler :
 
 		ValidationResult result =
 			await _validator.ValidateAsync(request);
+
 		if (!result.IsValid)
 		{
-			//Error
+			//To do
 		}
 
 		var customer = new Customer();

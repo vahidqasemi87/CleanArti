@@ -3,6 +3,7 @@ using AutoMapper;
 using Domain.DTOs.Responses.Products;
 using Domain.Entities;
 using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +20,27 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
 
 	private readonly IMapper _mapper;
 
-	private readonly IEnumerable<IValidator<CreateProductCommand>> _validators;
+	private readonly IValidator<CreateProductCommand> _validator;
 
 	public CreateProductCommandHandler(
-		IEnumerable<IValidator<CreateProductCommand>> validators, IUnitOfWork unitOfWork, IProductRepository productRepository, IMapper mapper
+		IUnitOfWork unitOfWork, IProductRepository productRepository, IMapper mapper, IValidator<CreateProductCommand> validator
 		)
 	{
-		_validators = validators;
+		
 		_unitOfWork = unitOfWork;
 		_productRepository = productRepository;
 		_mapper = mapper;
+		_validator = validator;
 	}
 	public async Task<CreateProductDto> Handle(CreateProductCommand request, CancellationToken cancellationToken)
 	{
-		var tt = _validators.Any();
+		ValidationResult validationResult =
+			await _validator.ValidateAsync(request);
+
+		if (!validationResult.IsValid)
+		{
+			// to do
+		}
 
 		var product = new Product();
 
@@ -43,6 +51,4 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
 		return new CreateProductDto(id: result);
 
 	}
-
-
 }

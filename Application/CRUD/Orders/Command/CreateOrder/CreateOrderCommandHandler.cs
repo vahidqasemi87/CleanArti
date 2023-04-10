@@ -2,6 +2,8 @@
 using AutoMapper;
 using Domain.DTOs.Responses.Orders;
 using Domain.Entities;
+using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 using System;
 using System.Threading;
@@ -21,6 +23,8 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
 
 	private readonly CalculateFinalPrice _calculateFinalPrice;
 
+	private readonly IValidator<CreateOrderCommand> _validator;
+
 
 
 	public CreateOrderCommandHandler(
@@ -29,7 +33,8 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
 		ICustomerRepository customerRepository,
 		IOrderRepository orderRepository,
 		IMapper mapper,
-		CalculateFinalPrice calculateFinalPrice)
+		CalculateFinalPrice calculateFinalPrice,
+		IValidator<CreateOrderCommand> validator)
 	{
 
 		_unitOfWork = unitOfWork;
@@ -37,11 +42,17 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
 		_orderRepository = orderRepository;
 		_mapper = mapper;
 		_calculateFinalPrice = calculateFinalPrice;
+		_validator = validator;
 	}
 	public async Task<CreateOrderDto> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
 	{
+		ValidationResult result =
+			await _validator.ValidateAsync(request);
 
-
+		if (!result.IsValid)
+		{
+			//To Do
+		}
 
 		var order = new Order();
 
