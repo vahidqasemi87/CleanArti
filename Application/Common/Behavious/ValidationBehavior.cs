@@ -22,6 +22,9 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 		_logger = logger;
 	}
 
+
+	// سوال؟
+	// چرا همیشه در اینجا مقدار درست به ما پاس می دهد و هیچ مقدار غلطی را پیدا نمی کند؟
 	public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
 	{
 		if (!_validators.Any())
@@ -40,7 +43,10 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 			validationResults.Add(r);
 		}
 
-		var errorNotifications = validationResults.SelectMany(x => x.Errors).Where(x => x != null).DistinctBy(x => x.ErrorMessage);
+		var errorNotifications = validationResults
+			.SelectMany(x => x.Errors)
+			.Where(x => x != null)
+			.DistinctBy(x => x.ErrorMessage);
 
 
 		if (errorNotifications.Any())
@@ -48,8 +54,11 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 			var error = errorNotifications.Select(x => new { x.ErrorCode, x.ErrorMessage }).ToList();
 
 			_logger.LogWarning(EventIds.ValidationEnd, "Validations failed for {RequestName}", request.GetType().Name);
+
 			var notifications = errorNotifications.Select(x => new Notification(x.ErrorCode, x.ErrorMessage));
+
 			var t = typeof(TResponse);
+
 			if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Result<>))
 			{
 				var constructed = typeof(Result<>).MakeGenericType(t.GenericTypeArguments);
@@ -58,6 +67,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
 				return (TResponse)instance;
 			}
+
 			else if (t == typeof(Result))
 			{
 				Type constructed;
@@ -73,7 +83,14 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 			}
 		}
 
-		_logger.LogDebug(EventIds.ValidationEnd, "The request name:'{RequestName}' was valid", request.GetType().Name);
+
+		_logger
+			.LogDebug(
+			   eventId: EventIds.ValidationEnd,
+			message: "The request name:'{RequestName}' was valid",
+			args: request.GetType().Name);
+
+
 		return await next();
 	}
 }
