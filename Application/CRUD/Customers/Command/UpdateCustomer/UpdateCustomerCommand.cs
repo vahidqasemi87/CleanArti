@@ -1,9 +1,8 @@
-﻿using Application.Interfaces;
+﻿using Application.Common.Interfaces.Learning02;
+using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,15 +26,20 @@ public class UpdateCustomerCommand : IRequest<Customer>
 
 public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, Customer>
 {
-	private readonly IApplicationDbContext _context;
-	public UpdateCustomerCommandHandler(IApplicationDbContext context)
+	private readonly IUnitOfWork _unitOfWork;
+	private readonly ICustomerRepository _customerRepository;
+	public UpdateCustomerCommandHandler(IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
 	{
-		_context = context;
+		_unitOfWork = unitOfWork;
+		_customerRepository = customerRepository;
 	}
 	public async Task<Customer> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
 	{
-		var findedCustomer = await _context.Customers.Where(w => w.Id == request.Id)
-			.FirstOrDefaultAsync();
+		//var findedCustomer = await _context.Customers.Where(w => w.Id == request.Id)
+		//	.FirstOrDefaultAsync();
+
+		var findedCustomer
+			= await _customerRepository.GetAsync(request.Id);
 
 		if (findedCustomer != null)
 		{
@@ -47,7 +51,8 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 			//findedCustomer.Orders = request.Orders;
 			findedCustomer.Username = request.Username;
 
-			var info = await _context.SaveChangesAsync();
+			//var info = await _context.SaveChangesAsync();
+			await _unitOfWork.CompleteAsync();
 			return findedCustomer;
 		}
 		return null;

@@ -1,12 +1,11 @@
 ﻿using Application.Common.Base;
 using Domain.DTOs.Responses.Customers;
-using MediatR;
 
 namespace Application.Features.Customers.Command.CreateCustomer;
 
 public class CreateCustomerCommand :
 	ICommand<CreateCustomerDto>
-	//IRequest<CreateCustomerDto>
+//IRequest<CreateCustomerDto>
 {
 	public CreateCustomerCommand()
 	{

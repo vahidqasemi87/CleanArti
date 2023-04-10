@@ -1,9 +1,8 @@
-﻿using Application.Interfaces;
+﻿using Application.Common.Interfaces.Learning02;
+using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,15 +24,21 @@ public class UpdateOrderCommand : IRequest<int>
 
 public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, int>
 {
-	private readonly IApplicationDbContext _context;
-	public UpdateOrderCommandHandler(IApplicationDbContext context)
+	private readonly IUnitOfWork _unitOfWork;
+	private readonly IOrderRepository _orderRepository;
+	public UpdateOrderCommandHandler(IUnitOfWork unitOfWork, IOrderRepository orderRepository)
 	{
-		_context = context;
+		_unitOfWork = unitOfWork;
+		_orderRepository = orderRepository;
 	}
 	public async Task<int> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
 	{
-		var findedOrder = await _context.Orders.Where(w => w.Id == request.Id)
-			.FirstOrDefaultAsync();
+		//var findedOrder = await _context.Orders.Where(w => w.Id == request.Id)
+		//	.FirstOrDefaultAsync();
+
+		var findedOrder =
+			await _orderRepository.GetAsync(request.Id);
+
 		if (findedOrder != null)
 		{
 			findedOrder.IsPayed = request.IsPayed;
@@ -42,7 +47,10 @@ public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, int
 			findedOrder.PaymentCode = request.PaymentCode;
 			findedOrder.Customer = request.Customer;
 
-			var finalId = await _context.SaveChangesAsync();
+			//var finalId = await _context.SaveChangesAsync();
+			var finalId =
+				await _unitOfWork.CompleteAsync();
+
 			return finalId;
 		}
 		return 0;

@@ -1,6 +1,5 @@
 ﻿using Application.Common.Base;
 using Domain.DTOs.Responses.Orders;
-using MediatR;
 using System;
 
 namespace Application.Features.Orders.Command.CreateOrder;

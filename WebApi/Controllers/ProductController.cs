@@ -3,7 +3,6 @@ using Application.Features.Products.Command.CreateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Serilog.Core;
 using System.Threading.Tasks;
 using WebApi.ViewModels;
 

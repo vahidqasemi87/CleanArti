@@ -66,7 +66,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 				var args = new object[] { null, notifications };
 				var instance = Activator.CreateInstance(constructed, args);
 
-				return (TResponse)instance;
+				return (TResponse)instance!;
 			}
 
 			else if (t == typeof(Result))
@@ -76,7 +76,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 				constructed = typeof(Result);
 				args = new object[] { notifications };
 				var instance = Activator.CreateInstance(constructed, args);
-				return (TResponse)instance;
+				return (TResponse)instance!;
 			}
 			else
 			{

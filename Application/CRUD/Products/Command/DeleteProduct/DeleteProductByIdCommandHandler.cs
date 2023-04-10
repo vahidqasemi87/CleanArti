@@ -1,7 +1,6 @@
-﻿using Application.Interfaces;
+﻿using Application.Common.Interfaces.Learning02;
+using Application.Interfaces;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,21 +8,33 @@ namespace Application.Features.Products.Command.DeleteProduct;
 
 public class DeleteProductByIdCommandHandler : IRequestHandler<DeleteProductByIdCommand, int>
 {
-	private readonly IApplicationDbContext _context;
-	public DeleteProductByIdCommandHandler(IApplicationDbContext context)
+	
+	private readonly IUnitOfWork _unitOfWork;
+	private readonly IProductRepository _productRepository;
+	public DeleteProductByIdCommandHandler( IUnitOfWork unitOfWork, IProductRepository productRepository)
 	{
-		_context = context;
+		_unitOfWork = unitOfWork;
+		_productRepository = productRepository;
 	}
 	public async Task<int> Handle(DeleteProductByIdCommand request, CancellationToken cancellationToken)
 	{
+		//var findedProduct =
+		//	await _context.Products.Where(w => w.Id == request.Id).FirstOrDefaultAsync();
+
 		var findedProduct =
-			await _context.Products.Where(w => w.Id == request.Id).FirstOrDefaultAsync();
+			await _productRepository.GetAsync(request.Id);
 
 		if (findedProduct != null)
 		{
-			_context.Products.Remove(findedProduct);
+			await _productRepository.Delete(findedProduct.Id);
+			//_context.Products.Remove(findedProduct);
+
+			//var finalId =
+			//	await _context.SaveChangesAsync();
+
 			var finalId =
-				await _context.SaveChangesAsync();
+				await _unitOfWork.CompleteAsync();
+
 			return finalId;
 		}
 		return 0;

@@ -1,6 +1,5 @@
 ﻿using Application.Common.Base;
 using Domain.DTOs.Responses.Products;
-using MediatR;
 
 namespace Application.Features.Products.Command.CreateProduct;
 
