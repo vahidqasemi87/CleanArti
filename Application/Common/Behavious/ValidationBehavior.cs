@@ -36,6 +36,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
 
 		var validationResults = new List<FluentValidation.Results.ValidationResult>();
+
 		foreach (var validator in _validators)
 		{
 			var r = validator.Validate(context);

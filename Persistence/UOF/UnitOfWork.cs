@@ -26,24 +26,27 @@ public class UnitOfWork : IUnitOfWork
 
 	}
 
-
-
-
-	public async Task<int> Complete()
+	public async Task<int> CompleteAsync()
 	{
-		return _context.SaveChanges();
+		return await _context.SaveChangesAsync();
+	}
+
+	public async Task DisposeAsync()
+	{
+		await DisposeAsync();
+		GC.SuppressFinalize(this);
+	}
+	protected virtual async void Dispose(bool disposing)
+	{
+		if (disposing)
+		{
+			await _context.DisposeAsync();
+		}
 	}
 
 	public void Dispose()
 	{
 		Dispose(true);
 		GC.SuppressFinalize(this);
-	}
-	protected virtual void Dispose(bool disposing)
-	{
-		if (disposing)
-		{
-			_context.Dispose();
-		}
 	}
 }

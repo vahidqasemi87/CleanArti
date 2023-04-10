@@ -10,7 +10,8 @@ public interface IUnitOfWork : IDisposable
 	ICustomerRepository Customers { get; }
 	IOrderRepository Orders { get; }
 	IProductRepository Products { get; }
-	Task<int> Complete();
+	Task<int> CompleteAsync();
+	Task DisposeAsync();
 }
 
 

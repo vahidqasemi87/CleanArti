@@ -1,5 +1,6 @@
 ﻿
 using Application.Features.Orders.Command.CreateOrder;
+using Application.Features.Orders.Command.DeleteOrder;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -53,5 +54,13 @@ public class OrdersController : ControllerBase
 			Logger.LogError(message: ex.Message);
 			return BadRequest(ex.Message);
 		}
+	}
+
+	[HttpGet(template: "DeleteOrder")]
+	public async Task<IActionResult> DeleteOrder(int id)
+	{
+		var result =
+			await _mediator.Send(new DeleteOrderCommand() { Id = id });
+		return Ok(value: result);
 	}
 }

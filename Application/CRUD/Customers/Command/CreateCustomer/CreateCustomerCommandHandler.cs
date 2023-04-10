@@ -44,7 +44,7 @@ public class CreateCustomerCommandHandler :
 
 
 		await _customerRepository.AddAsync(customer);
-		var orderId = await _unitOfWork.Complete();
+		var orderId = await _unitOfWork.CompleteAsync();
 
 
 
