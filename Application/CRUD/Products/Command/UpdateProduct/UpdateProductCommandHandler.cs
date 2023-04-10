@@ -1,5 +1,4 @@
 ﻿using Application.Common.Interfaces.Learning02;
-using Application.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;

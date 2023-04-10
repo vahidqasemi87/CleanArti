@@ -1,5 +1,4 @@
 ﻿using Application.Common.Interfaces.Learning02;
-using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
 using System.Collections.Generic;

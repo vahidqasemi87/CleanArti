@@ -1,5 +1,4 @@
 ﻿using Application.Features.Orders.Command.CreateOrder;
-using Domain.Entities;
 using FluentValidation;
 
 namespace Application.CRUD.Orders.Command.CreateOrder;

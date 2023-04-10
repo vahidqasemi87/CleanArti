@@ -1,5 +1,4 @@
 ﻿using Application.Common.Interfaces.Learning02;
-using Application.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,10 +7,10 @@ namespace Application.Features.Products.Command.DeleteProduct;
 
 public class DeleteProductByIdCommandHandler : IRequestHandler<DeleteProductByIdCommand, int>
 {
-	
+
 	private readonly IUnitOfWork _unitOfWork;
 	private readonly IProductRepository _productRepository;
-	public DeleteProductByIdCommandHandler( IUnitOfWork unitOfWork, IProductRepository productRepository)
+	public DeleteProductByIdCommandHandler(IUnitOfWork unitOfWork, IProductRepository productRepository)
 	{
 		_unitOfWork = unitOfWork;
 		_productRepository = productRepository;

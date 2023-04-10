@@ -1,5 +1,4 @@
 ﻿using Application.Common.Interfaces.Learning02;
-using Application.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ public class DeleteOrderCommand : IRequest<int>
 
 public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand, int>
 {
-	
+
 	private readonly IUnitOfWork _unitOfWork;
 	private readonly IOrderRepository _orderRepository;
 

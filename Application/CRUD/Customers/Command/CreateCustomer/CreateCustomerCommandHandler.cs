@@ -3,10 +3,8 @@ using AutoMapper;
 using Domain.DTOs.Responses.Customers;
 using Domain.Entities;
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using FluentValidation.Results;
 using MediatR;
-using Step02;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,7 +22,7 @@ public class CreateCustomerCommandHandler :
 
 
 	public CreateCustomerCommandHandler(
-		IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository,IValidator<CreateCustomerCommand> validator
+		IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IValidator<CreateCustomerCommand> validator
 		)
 	{
 		_mapper = mapper;

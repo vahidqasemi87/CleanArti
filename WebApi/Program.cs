@@ -1,9 +1,5 @@
 ﻿using Application;
 using Application.Common.Interfaces.Learning02;
-using Application.CRUD.Customers.Command.CreateCustomer;
-using Application.Features.Customers.Command.CreateCustomer;
-using Domain.Entities;
-using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
