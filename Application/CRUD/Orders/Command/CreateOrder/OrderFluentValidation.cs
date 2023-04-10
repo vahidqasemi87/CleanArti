@@ -1,9 +1,10 @@
-﻿using Domain.Entities;
+﻿using Application.Features.Orders.Command.CreateOrder;
+using Domain.Entities;
 using FluentValidation;
 
 namespace Application.CRUD.Orders.Command.CreateOrder;
 
-public class OrderFluentValidation : AbstractValidator<Order>
+public class OrderFluentValidation : AbstractValidator<CreateOrderCommand>
 {
 	public OrderFluentValidation()
 	{

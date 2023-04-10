@@ -1,10 +1,17 @@
 ﻿
 using Application.Common.Behavious;
 using Application.Common.Mappings;
+using Application.CRUD.Customers.Command.CreateCustomer;
+using Application.CRUD.Orders.Command.CreateOrder;
+using Application.CRUD.Products.Command.CreateProduct;
+using Application.Features.Customers.Command.CreateCustomer;
 using Application.Features.Orders.Command.CreateOrder;
+using Application.Features.Products.Command.CreateProduct;
 using AutoMapper;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Application;
 
@@ -28,7 +35,12 @@ public static class DependencyInjection
 
 		services.AddScoped<CalculateFinalPrice>();
 
-		services.AddAutoMapper(System.Reflection.Assembly.GetExecutingAssembly());
+		services.AddAutoMapper(assemblies: System.Reflection.Assembly.GetExecutingAssembly());
+
+		services.AddScoped<IValidator<CreateCustomerCommand>, CustomerFluentValidation>();
+		services.AddScoped<IValidator<CreateProductCommand>, ProductFluentValidation>();
+		services.AddScoped<IValidator<CreateOrderCommand>, OrderFluentValidation>();
+
 
 		#region [Config Automaspper]
 		var mapperConfig =

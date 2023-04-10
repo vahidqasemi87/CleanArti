@@ -25,6 +25,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
 	// سوال؟
 	// چرا همیشه در اینجا مقدار درست به ما پاس می دهد و هیچ مقدار غلطی را پیدا نمی کند؟
+	//  همیشه خط شماره 33 اجرا می شه !!
 	public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
 	{
 		if (!_validators.Any())

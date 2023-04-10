@@ -1,5 +1,9 @@
 ﻿using Application;
 using Application.Common.Interfaces.Learning02;
+using Application.CRUD.Customers.Command.CreateCustomer;
+using Application.Features.Customers.Command.CreateCustomer;
+using Domain.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -43,6 +47,10 @@ public class Program
 		builder.Services.AddScoped<ICustomerRepository, CustomersRepository>();
 		builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 		builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+		//builder.Services.AddValidatorsFromAssemblyContaining<CustomerFluentValidation>();
+
+
 		#endregion
 
 		#region [MediatR]

@@ -3,6 +3,8 @@ using Domain.DTOs.Responses.Customers;
 
 namespace Application.Features.Customers.Command.CreateCustomer;
 
+
+
 public class CreateCustomerCommand :
 	ICommand<CreateCustomerDto>
 //IRequest<CreateCustomerDto>

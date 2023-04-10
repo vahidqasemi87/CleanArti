@@ -1,0 +1,8 @@
+2023-04-10 12:16:35.271 +03:30 [ERR] Validation failed: 
+ -- Username: Usernme is not empty. Severity: Error
+ -- Password: password length between 8 .. 16 charachter Severity: Error
+ -- Password: The specified condition was not met for 'Password'. Severity: Error
+2023-04-10 12:29:07.955 +03:30 [ERR] Validation failed: 
+ -- Username: Usernme is not empty. Severity: Error
+ -- Password: password length between 8 .. 16 charachter Severity: Error
+ -- Password: The specified condition was not met for 'Password'. Severity: Error

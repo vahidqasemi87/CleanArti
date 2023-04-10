@@ -1,11 +1,12 @@
 ﻿using Application.Common.Base;
 using Domain.DTOs.Responses.Orders;
+using MediatR;
 using System;
 
 namespace Application.Features.Orders.Command.CreateOrder;
 
-public class CreateOrderCommand : //IRequest<CreateOrderDto>
-	ICommand<CreateOrderDto>
+public class CreateOrderCommand : IRequest<CreateOrderDto>
+	//ICommand<CreateOrderDto>
 {
 	public CreateOrderCommand(int customerId)
 	{

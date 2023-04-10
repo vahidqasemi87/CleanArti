@@ -6,8 +6,6 @@ using System.Text.RegularExpressions;
 
 namespace Application.CRUD.Customers.Command.CreateCustomer;
 
-public sealed record CustomerCreateCommand(string Username, string Name, string Password) : ICommand<CreateCustomerCommand>;
-
 
 public class CustomerFluentValidation :
 	//AbstractValidator<CustomerCreateCommand> 

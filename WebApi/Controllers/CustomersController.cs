@@ -1,4 +1,6 @@
 ﻿using Application.Features.Customers.Command.CreateCustomer;
+using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,6 +15,8 @@ public class CustomersController : ControllerBase
 {
 	private readonly IMediator _mediator;
 	private readonly ILogger<CustomersController> _logger;
+	
+
 	public CustomersController(IMediator mediator, ILogger<CustomersController> logger)
 	{
 		_mediator = mediator;
@@ -21,12 +25,14 @@ public class CustomersController : ControllerBase
 	}
 	[HttpPost]
 	public async Task<IActionResult> Get(CreateCustomerViewModel input)
-	{
+	 {
 		try
 		{
 			_logger.LogInformation(message: "Customer get method staeting ... ");
 			if (!ModelState.IsValid)
 				return BadRequest(error: "موارد منطبق نمی باشد");
+
+			
 
 			//throw new System.Exception("خطای ساختگی");
 
