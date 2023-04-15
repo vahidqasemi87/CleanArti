@@ -20,33 +20,31 @@ public class LoginController : ControllerBase
 	{
 		_addressApi = addressApi.Value;
 		_logger = logger;
-		_logger.LogInformation("Login Controller is called ... ");
+		_logger.LogInformation(message: "Login Controller is called ... ");
 	}
 
 	[HttpPost(template: "Login")]
 	public async Task<IActionResult> Login(UserLogin userLogin)
 	{
-		_logger.LogInformation("Login get method staeting ... ");
+		_logger.LogInformation(message: "Login get method staeting ... ");
 		try
 		{
-			var options = new RestClientOptions("https://localhost:7001")
+			var options = new RestClientOptions(baseUrl: "https://localhost:7001")
 			{
 				MaxTimeout = -1,
 			};
 			var client = new RestClient(options);
 
 			string requestUrl = _addressApi.RequestLogin!;
-			var request = new RestRequest(requestUrl, Method.Post);
+			var request = new RestRequest(resource: requestUrl, method: Method.Post);
 
-
-
-			request.AddHeader("Content-Type", "application/json");
+			request.AddHeader(name: "Content-Type", value: "application/json");
 
 			//var body = @$"username:{userLogin.Username},password:{userLogin.Password}";
 
 			var body = JsonConvert.SerializeObject(userLogin);
 
-			request.AddStringBody(body, DataFormat.Json);
+			request.AddStringBody(body, dataFormat: DataFormat.Json);
 			RestResponse response = await client.ExecuteAsync(request);
 			Console.WriteLine(response.Content);
 			if (response.IsSuccessful)
@@ -60,10 +58,5 @@ public class LoginController : ControllerBase
 			_logger.LogError(message: ex.Message);
 			return BadRequest(ex.Message);
 		}
-
-
-
-
-
 	}
 }

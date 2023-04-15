@@ -10,8 +10,13 @@ public class MapperProfile : Profile
 {
 	public MapperProfile()
 	{
-		CreateMap<Customer, CreateCustomerCommand>().ReverseMap();
-		CreateMap<Order, CreateOrderCommand>().ReverseMap();
-		CreateMap<Product, CreateProductCommand>().ReverseMap();
+		CreateMap<Customer, CreateCustomerCommand>()
+			.ReverseMap();
+
+		CreateMap<Order, CreateOrderCommand>()
+			.ReverseMap();
+
+		CreateMap<Product, CreateProductCommand>()
+			.ReverseMap();
 	}
 }

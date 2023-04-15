@@ -108,12 +108,16 @@ public class Program
 		#endregion
 
 
+
+		//**********
 		// Add services to the container.
 		builder.Services.AddControllers();
 
 		builder.Services.AddEndpointsApiExplorer();
 
 		builder.Services.AddSwaggerGen();
+		//**********
+
 
 		#region [Read from appsettings config]
 		builder.Services.Configure<AddressApi>(config: builder.Configuration.GetSection(key: "AddressApi"));
