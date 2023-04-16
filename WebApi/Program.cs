@@ -20,128 +20,129 @@ namespace WebApi;
 
 public class Program
 {
-	public static void Main(string[] args)
-	{
-		WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
+    public static void Main(string[] args)
+    {
+        WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 
-		#region[Add Dependency injection]
+        #region[Add Dependency injection]
 
-		builder.Services.AddApplication();
-		builder.Services.AddPersistence(configuration: builder.Configuration);
+        builder.Services.AddApplication();
+        builder.Services.AddPersistence(configuration: builder.Configuration);
 
-		#endregion \[Add Dependency injection]
+        #endregion \[Add Dependency injection]
 
-		#region [DbContext]
-		builder.Services.AddDbContext<ApplicationDbContext>(options =>
-		{
-			options.UseSqlServer(connectionString: builder.Configuration.GetConnectionString(name: "Standard"));
-		});
-		#endregion
+        #region [DbContext]
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        {
+            options.UseSqlServer(connectionString: builder.Configuration.GetConnectionString(name: "Standard"));
+        });
+        #endregion
 
-		#region[DI Scope]
-		builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-		builder.Services.AddScoped<ICustomerRepository, CustomersRepository>();
-		builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-		builder.Services.AddScoped<IProductRepository, ProductRepository>();
+        #region[DI Scope]
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+        builder.Services.AddScoped<ICustomerRepository, CustomersRepository>();
+        builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+        builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
-		//builder.Services.AddValidatorsFromAssemblyContaining<CustomerFluentValidation>();
-
-
-		#endregion
-
-		#region [MediatR]
-		builder.Services.AddMediatR(options =>
-		{
-			options.RegisterServicesFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
-		});
-		#endregion
-
-		#region [Generate root Path]
-		var rootProject =
-			builder.Environment.ContentRootPath;
-
-		var fileName = $"{rootProject}\\LogFolder\\Log.txt";
-
-		if (!System.IO.Directory.Exists($"{rootProject}\\LogFolder"))
-			System.IO.Directory.CreateDirectory($"{rootProject}\\LogFolder");
-		#endregion
-
-		#region [Serilog Configuration]
-		IConfigurationRoot configuration =
-			new ConfigurationBuilder()
-			.AddJsonFile("appsettings.json").Build();
+        //builder.Services.AddValidatorsFromAssemblyContaining<CustomerFluentValidation>();
 
 
-		//روش اول از طریق 
-		//appSettings -->
+        #endregion
 
-		//builder
-		//	.Host
-		//	.UseSerilog(configureLogger:
-		//	(context, configuration) => configuration
-		//	.ReadFrom
-		//	.Configuration(configuration: context.Configuration));
+        #region [MediatR]
+        builder.Services.AddMediatR(options =>
+        {
+            options.RegisterServicesFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
+        });
+        #endregion
 
+        #region [Generate root Path]
+        var rootProject =
+            builder.Environment.ContentRootPath;
 
-		// روش دوم از طرق 
-		// C# -->
+        var fileName = $"{rootProject}\\LogFolder\\Log.txt";
 
-		Log.Logger = new LoggerConfiguration()
-			.ReadFrom.Configuration(configuration)
-			.Enrich.FromLogContext()
-			.WriteTo.Console()
-			.WriteTo.Seq(serverUrl: "http://localhost:5341")
-			.MinimumLevel.Override(source: "Microsoft", minimumLevel: Serilog.Events.LogEventLevel.Error)
-			.WriteTo.File(path: fileName,
-				restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Error,
-				rollingInterval: RollingInterval.Day,
-					retainedFileCountLimit: null,
-			fileSizeLimitBytes: null,
-			shared: true,
-			flushToDiskInterval: TimeSpan.FromSeconds(value: 1))
-			//.MinimumLevel.Override(source: "Microsoft", minimumLevel: Serilog.Events.LogEventLevel.Error)
-			//.MinimumLevel.Override(source: "RestSharp", minimumLevel: Serilog.Events.LogEventLevel.Error)
-			//.MinimumLevel.Override(source: "RestClient", minimumLevel: Serilog.Events.LogEventLevel.Error)
-			.CreateLogger();
+        if (!System.IO.Directory.Exists($"{rootProject}\\LogFolder"))
+            System.IO.Directory.CreateDirectory($"{rootProject}\\LogFolder");
+        #endregion
 
-		builder.Host.UseSerilog();
-		#endregion
+        #region [Serilog Configuration]
+        IConfigurationRoot configuration =
+            new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json").Build();
 
 
+        //روش اول از طریق 
+        //appSettings -->
 
-		//**********
-		// Add services to the container.
-		builder.Services.AddControllers();
-
-		builder.Services.AddEndpointsApiExplorer();
-
-		builder.Services.AddSwaggerGen();
-		//**********
+        //builder
+        //	.Host
+        //	.UseSerilog(configureLogger:
+        //	(context, configuration) => configuration
+        //	.ReadFrom
+        //	.Configuration(configuration: context.Configuration));
 
 
-		#region [Read from appsettings config]
-		builder.Services.Configure<AddressApi>(config: builder.Configuration.GetSection(key: "AddressApi"));
-		#endregion
+        // روش دوم از طرق 
+        // C# -->
 
-		var app = builder.Build();
+        Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(configuration)
+            .Enrich.FromLogContext()
+            .WriteTo.Console()
+            .WriteTo.Seq(serverUrl: "http://localhost:5341")
+            .MinimumLevel.Override(source: "Microsoft", minimumLevel: Serilog.Events.LogEventLevel.Error)
+            .WriteTo.File(path: fileName,
+                restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Error,
+                rollingInterval: RollingInterval.Day,
+                    retainedFileCountLimit: null,
+            fileSizeLimitBytes: null,
+            shared: true,
+            flushToDiskInterval: TimeSpan.FromSeconds(value: 1))
+            //.MinimumLevel.Override(source: "Microsoft", minimumLevel: Serilog.Events.LogEventLevel.Error)
+            //.MinimumLevel.Override(source: "RestSharp", minimumLevel: Serilog.Events.LogEventLevel.Error)
+            //.MinimumLevel.Override(source: "RestClient", minimumLevel: Serilog.Events.LogEventLevel.Error)
+            .CreateLogger();
 
-		// Configure the HTTP request pipeline.
-		if (app.Environment.IsDevelopment())
-		{
-			app.UseSwagger();
-			app.UseSwaggerUI();
-		}
+        builder.Host.UseSerilog();
+        #endregion
 
-		app.UseSerilogRequestLogging();
+        #region [Add services to the container]
+        //**********
+        // Add services to the container.
+        builder.Services.AddControllers();
 
-		app.UseHttpsRedirection();
+        builder.Services.AddEndpointsApiExplorer();
 
-		app.UseAuthorization();
+        builder.Services.AddSwaggerGen();
+        //**********
+        #endregion
 
-		app.MapControllers();
+        #region [Read from appsettings config]
+        builder.Services.Configure<AddressApi>(config: builder.Configuration.GetSection(key: "AddressApi"));
+        #endregion
 
-		app.UseMiddleware<ErrorHandlingMiddleware>();
+        var app = builder.Build();
 
-		app.Run();
-	}
+        // Configure the HTTP request pipeline.
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+
+
+        app.UseSerilogRequestLogging();
+
+        app.UseHttpsRedirection();
+
+        app.UseAuthorization();
+
+        app.MapControllers();
+
+        app.UseMiddleware<ErrorHandlingMiddleware>();
+
+        app.Run();
+    }
 }
