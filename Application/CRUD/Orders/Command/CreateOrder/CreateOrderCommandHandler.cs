@@ -69,7 +69,7 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
 
 
         decimal finalPriceCalculator =
-            _calculateFinalPrice.Calculate(orderDate: checkLastBuy?.OrderDate, price: orentity: entity: der.Price);
+            _calculateFinalPrice.Calculate(orderDate: checkLastBuy?.OrderDate, price: order.Price);
 
         order.Price = finalPriceCalculator;
 
@@ -88,7 +88,7 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
     }
 }
 
-//  بهترین مکان برای نوشتن این کلاس کجاست ؟
+//  بهترین مکان برای نوشتن این کلاس کجاست ؟؟؟
 public class CalculateFinalPrice
 {
     public decimal Calculate(DateTime? orderDate, decimal price)
