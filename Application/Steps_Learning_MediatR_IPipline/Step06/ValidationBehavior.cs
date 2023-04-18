@@ -23,8 +23,6 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
 	public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, MediatR.RequestHandlerDelegate<TResponse> next)
 	{
-
-
 		if (!_validator.Any())
 		{
 			return await next();

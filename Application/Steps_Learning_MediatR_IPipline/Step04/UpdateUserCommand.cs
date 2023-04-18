@@ -14,7 +14,8 @@ public sealed class UpdateUserCommandValidator : AbstractValidator<UpdateUserCom
 {
 	public UpdateUserCommandValidator()
 	{
-		RuleFor(x => x.UserId).NotEmpty();
+		RuleFor(x => x.UserId)
+			.NotEmpty();
 
 		RuleFor(x => x.FirstName)
 			.NotEmpty()

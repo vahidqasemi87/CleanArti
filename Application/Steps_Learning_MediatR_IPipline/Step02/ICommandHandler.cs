@@ -12,5 +12,4 @@ public interface ICommandHandler<in TCommand, TResponse> : IRequestHandler<TComm
 public interface IQueryHandler<in TQuery, TResponse> : IRequestHandler<TQuery, TResponse>
 	where TQuery : IQuery<TResponse>
 {
-
 }

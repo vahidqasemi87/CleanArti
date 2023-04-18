@@ -105,7 +105,7 @@ internal sealed class ExceptionHandlingMiddleware : IMiddleware
 
 		if (exception is ValidationException validationException)
 		{
-			//			errors = validationException.Value;
+			//errors = validationException.Value;
 		}
 
 		return errors;
