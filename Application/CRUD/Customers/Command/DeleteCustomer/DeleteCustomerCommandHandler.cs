@@ -16,24 +16,17 @@ public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerComman
 	}
 	public async Task<int> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
 	{
-		//var findCustomer =
-		//	await _context.Customers.Where(w => w.Id == request.Id).FirstOrDefaultAsync();
-
-
+		
 		var findCustomer =
 		 await _customerRepository.GetAsync(request.Id);
 
 
 		if (findCustomer != null)
 		{
-			//var entityEntry = _context.Customers.Remove(findCustomer);
-			//await _customerRepository.Delete(findCustomer.Id);
+			
 			await _unitOfWork.Customers.Delete(findCustomer.Id);
 			var resultId =
 				await _unitOfWork.CompleteAsync();
-
-
-			//var resultId = await _context.SaveChangesAsync();
 
 
 			return resultId;
